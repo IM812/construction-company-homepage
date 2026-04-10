@@ -105,18 +105,18 @@ export function ContactsSection() {
             </div>
           </div>
 
-          {/* Map placeholder with iframe */}
-          <div className="mt-4 h-64 bg-[var(--navy-elevated)] border border-[var(--divider)] overflow-hidden relative">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.1254637524505!2d37.53533631590538!3d55.74916198055461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54bb40dae3a15%3A0x9e08fc11fc1f8c97!2z0JzQvtGB0LrQvtCy0YHQutC40Lkg0LTQtdC70L7QstC-0Lkg0YbQtdC90YLRgA!5e0!3m2!1sru!2sru!4v1680000000000!5m2!1sru!2sru"
-              width="100%"
-              height="100%"
-              style={{ border: 0, filter: "invert(0.9) hue-rotate(180deg)" }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Карта расположения офиса"
-            />
+          {/* Address detail strip */}
+          <div className="mt-4 border border-[var(--divider)] border-t-0 bg-[var(--navy-elevated)] px-8 py-6 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-12">
+            <div className="flex items-start gap-3">
+              <MapPin size={16} className="text-[var(--blue-brand)] mt-0.5 shrink-0" aria-hidden="true" />
+              <div>
+                <p className="text-[var(--text-primary)] font-bold text-base">Москва, Щелковское шоссе, дом 7</p>
+                <p className="text-[var(--text-secondary)] text-sm mt-0.5">Ближайшее метро: Щёлковская (15 мин. пешком)</p>
+              </div>
+            </div>
+            <div className="sm:ml-auto text-[var(--text-secondary)] text-sm leading-relaxed">
+              Бесплатная парковка на территории
+            </div>
           </div>
         </div>
       </section>
