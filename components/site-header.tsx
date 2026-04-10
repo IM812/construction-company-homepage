@@ -12,6 +12,7 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
 
   const navLinks = [
     { label: "Услуги", href: "#services" },
+    { label: "Проектирование", href: "/proektirovanie" },
     { label: "Преимущества", href: "#advantages" },
     { label: "Процесс", href: "#process" },
     { label: "Кейсы", href: "#cases" },
