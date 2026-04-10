@@ -116,26 +116,29 @@ export default function AboutPage() {
       <div className="pt-24">
 
         {/* ── Hero ── */}
-        <section className="py-24 bg-[var(--navy-deep)]" aria-labelledby="about-heading">
+        <section className="py-24 bg-[var(--navy-deep)] border-b border-[var(--divider)]" aria-labelledby="about-heading">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
               <div>
                 <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-5">
                   О компании
                 </p>
                 <h1
                   id="about-heading"
-                  className="text-[var(--text-primary)] font-black text-4xl lg:text-5xl xl:text-6xl leading-tight text-balance"
+                  className="text-[var(--text-primary)] font-black text-5xl lg:text-6xl xl:text-7xl leading-[1.02] text-balance"
                 >
                   Генеральный подрядчик полного цикла
                 </h1>
               </div>
-              <div className="flex flex-col gap-6 lg:pt-16">
-                <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
-                  Компания выполняет проектирование, строительство и инженерные сети с доведением объекта до сдачи. Один подрядчик закрывает весь цикл работ.
+              <div className="flex flex-col gap-5 lg:pb-2">
+                <p className="text-[var(--text-primary)] text-xl leading-relaxed font-medium">
+                  Компания выполняет проектирование, строительство и инженерные сети с доведением объекта до сдачи.
                 </p>
                 <p className="text-[var(--text-secondary)] text-base leading-relaxed">
-                  Работаем на рынке с 2009 года. За это время сданы 230+ объектов жилого, коммерческого и промышленного назначения. Объём выполненных работ — 48 млрд рублей.
+                  Один подрядчик закрывает весь цикл работ. Заказчик не управляет цепочкой смежников — он контролирует один договор и одну команду.
+                </p>
+                <p className="text-[var(--text-secondary)] text-base leading-relaxed">
+                  На рынке с 2009 года. 230+ сданных объектов. Объём выполненных работ — 48 млрд рублей.
                 </p>
               </div>
             </div>
@@ -173,21 +176,39 @@ export default function AboutPage() {
                 </p>
                 <h2
                   id="whoweare-heading"
-                  className="text-[var(--text-primary)] font-black text-3xl lg:text-4xl leading-tight text-balance"
+                  className="text-[var(--text-primary)] font-black text-3xl lg:text-4xl leading-tight text-balance mb-8"
                 >
-                  Единый подрядчик —<br />от проекта до ввода
+                  Работаем как единый подрядчик и берём на себя координацию всех этапов
                 </h2>
+                {/* Inline metric strip */}
+                <div className="flex flex-col gap-3 border-t border-[var(--divider)] pt-8">
+                  {[
+                    ["400+", "рабочих в штате"],
+                    ["80", "единиц спецтехники"],
+                    ["0", "срывов контрактных сроков"],
+                  ].map(([val, label]) => (
+                    <div key={label} className="flex items-baseline gap-3">
+                      <span className="text-[var(--blue-brand)] font-black text-2xl leading-none">{val}</span>
+                      <span className="text-[var(--text-secondary)] text-sm">{label}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-5">
                 <p className="text-[var(--text-secondary)] text-base leading-relaxed">
-                  Мы работаем как единый подрядчик и берём на себя координацию всех этапов строительного проекта: проектирование, строительство, монтаж инженерных сетей, контроль качества, прохождение государственной комиссии и получение разрешения на ввод.
+                  Берём на себя координацию всех этапов строительного проекта: проектирование, строительство, монтаж инженерных сетей, строительный контроль, прохождение государственной комиссии и получение разрешения на ввод.
                 </p>
                 <p className="text-[var(--text-secondary)] text-base leading-relaxed">
-                  Заказчик заключает один договор и получает единую точку ответственности. Нет параллельных договоров с проектировщиком, строителем и сетевиком. Нет взаимных претензий между смежниками. Нет неконтролируемого роста бюджета.
+                  Заказчик заключает один договор — и получает единую точку ответственности. Нет параллельных договоров с проектировщиком, строителем и сетевиком. Нет взаимных претензий между смежниками. Нет неконтролируемого роста бюджета.
                 </p>
                 <p className="text-[var(--text-secondary)] text-base leading-relaxed">
-                  Собственный ресурс — 400 рабочих в штате и 80 единиц спецтехники — позволяет не зависеть от рынка субподрядчиков и выдерживать контрактный график.
+                  Собственный ресурс — 400 рабочих и 80 единиц спецтехники — обеспечивает независимость от рынка субподрядчиков. Контрактный график выдерживается без привязки к внешним исполнителям.
                 </p>
+                <div className="mt-4 p-5 border-l-2 border-[var(--blue-brand)] bg-[var(--navy-card)]">
+                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+                    <strong className="text-[var(--text-primary)]">Ключевое отличие от обычного подрядчика:</strong> мы не перекладываем координацию смежников на заказчика. Технический директор ведёт объект лично — от первого совещания до подписания акта ввода.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -196,16 +217,21 @@ export default function AboutPage() {
         {/* ── Что делаем ── */}
         <section className="py-24 bg-[var(--navy-card)]" aria-labelledby="whatwedo-heading">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="mb-14 border-b border-[var(--divider)] pb-12">
-              <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-5">
-                02 / Что делаем
+            <div className="mb-14 border-b border-[var(--divider)] pb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+              <div>
+                <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-5">
+                  02 / Что делаем
+                </p>
+                <h2
+                  id="whatwedo-heading"
+                  className="text-[var(--text-primary)] font-black text-3xl lg:text-4xl leading-tight"
+                >
+                  Проектирование, строительство,<br className="hidden md:block" /> инженерные сети, сдача
+                </h2>
+              </div>
+              <p className="text-[var(--text-secondary)] text-base leading-relaxed max-w-xs">
+                Все виды работ выполняются в рамках одного генподрядного договора.
               </p>
-              <h2
-                id="whatwedo-heading"
-                className="text-[var(--text-primary)] font-black text-3xl lg:text-4xl leading-tight"
-              >
-                Виды работ
-              </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--divider)]">
               {whatWeDo.map((item) => {
@@ -238,16 +264,21 @@ export default function AboutPage() {
         {/* ── Преимущества ── */}
         <section className="py-24 bg-[var(--navy-deep)]" aria-labelledby="about-advantages-heading">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="mb-14 border-b border-[var(--divider)] pb-12">
-              <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-5">
-                03 / Преимущества
+            <div className="mb-14 border-b border-[var(--divider)] pb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+              <div>
+                <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-5">
+                  03 / Преимущества
+                </p>
+                <h2
+                  id="about-advantages-heading"
+                  className="text-[var(--text-primary)] font-black text-3xl lg:text-4xl leading-tight"
+                >
+                  Полный цикл. Ответственность.<br className="hidden md:block" /> Снижение рисков. Контроль.
+                </h2>
+              </div>
+              <p className="text-[var(--text-secondary)] text-base leading-relaxed max-w-xs">
+                Четыре принципа, на которых строится работа с каждым заказчиком.
               </p>
-              <h2
-                id="about-advantages-heading"
-                className="text-[var(--text-primary)] font-black text-3xl lg:text-4xl leading-tight"
-              >
-                Почему работают с нами
-              </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--divider)]">
               {advantages.map((adv, i) => (

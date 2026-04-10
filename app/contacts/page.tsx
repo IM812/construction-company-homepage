@@ -47,7 +47,7 @@ export default function ContactsPage() {
               <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-4">
                 Контакты
               </p>
-              <h1 className="text-[var(--text-primary)] font-black text-4xl lg:text-5xl xl:text-6xl leading-[1.05] text-balance mb-6">
+              <h1 className="text-[var(--text-primary)] font-black text-5xl lg:text-6xl xl:text-7xl leading-[1.02] text-balance mb-6">
                 Свяжитесь с нами<br />для расчёта проекта
               </h1>
               <p className="text-[var(--text-secondary)] text-lg lg:text-xl leading-relaxed max-w-2xl">
@@ -58,66 +58,65 @@ export default function ContactsPage() {
             {/* Two-column layout: contacts + form */}
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
               {/* LEFT: Contact info */}
-              <div className="lg:col-span-2 space-y-10">
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 bg-[var(--navy-elevated)] flex items-center justify-center">
-                      <Phone size={20} className="text-[var(--blue-brand)]" aria-hidden="true" />
-                    </div>
-                    <h2 className="text-[var(--text-primary)] font-bold text-xl">
-                      Телефоны
-                    </h2>
-                  </div>
-                  <div className="space-y-3">
+              <div className="lg:col-span-2 flex flex-col gap-0">
+                {/* Phone block */}
+                <div className="bg-[var(--navy-card)] border border-[var(--divider)] p-8">
+                  <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-6">
+                    Телефоны
+                  </p>
+                  <div className="flex flex-col gap-6">
                     <div>
                       <a
                         href="tel:+74951234567"
-                        className="block text-[var(--text-primary)] font-black text-2xl hover:text-[var(--blue-brand)] transition-colors"
+                        className="block text-[var(--text-primary)] font-black text-2xl lg:text-3xl hover:text-[var(--blue-brand)] transition-colors leading-tight"
                       >
                         +7 (495) 123-45-67
                       </a>
-                      <p className="text-[var(--text-secondary)] text-sm mt-1">
-                        Офис, Москва
+                      <p className="text-[var(--text-secondary)] text-sm mt-1.5">
+                        Офис, Москва — Пн–Пт 9:00–18:00
                       </p>
                     </div>
-                    <div>
+                    <div className="pt-4 border-t border-[var(--divider)]">
                       <a
                         href="tel:+79161234567"
-                        className="block text-[var(--text-primary)] font-black text-2xl hover:text-[var(--blue-brand)] transition-colors"
+                        className="block text-[var(--text-primary)] font-black text-2xl lg:text-3xl hover:text-[var(--blue-brand)] transition-colors leading-tight"
                       >
                         +7 (916) 123-45-67
                       </a>
-                      <p className="text-[var(--text-secondary)] text-sm mt-1">
-                        Отдел продаж
+                      <p className="text-[var(--text-secondary)] text-sm mt-1.5">
+                        Отдел продаж — с 8:00 до 20:00
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 bg-[var(--navy-elevated)] flex items-center justify-center">
-                      <MapPin size={20} className="text-[var(--blue-brand)]" aria-hidden="true" />
-                    </div>
-                    <h2 className="text-[var(--text-primary)] font-bold text-xl">
-                      Адрес
-                    </h2>
-                  </div>
+                {/* Address block */}
+                <div className="bg-[var(--navy-card)] border border-t-0 border-[var(--divider)] p-8">
+                  <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-6">
+                    Адрес
+                  </p>
                   <address className="not-italic">
-                    <p className="text-[var(--text-primary)] font-bold text-xl leading-snug mb-2">
-                      Москва, Щелковское шоссе, дом 7
-                    </p>
-                    <p className="text-[var(--text-secondary)] text-base leading-relaxed">
+                    <div className="flex items-start gap-3 mb-4">
+                      <MapPin size={18} className="text-[var(--blue-brand)] mt-0.5 shrink-0" aria-hidden="true" />
+                      <p className="text-[var(--text-primary)] font-bold text-lg leading-snug">
+                        Москва, Щелковское шоссе, дом 7
+                      </p>
+                    </div>
+                    <p className="text-[var(--text-secondary)] text-sm leading-relaxed pl-7">
                       Пн — Пт: 9:00 – 18:00<br />
                       Суббота — по согласованию
                     </p>
                   </address>
                 </div>
 
-                <div className="pt-8 border-t border-[var(--divider)]">
-                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
-                    <strong className="text-[var(--text-primary)]">Бесплатный выезд</strong> технического директора на объект в пределах Московской области.
-                  </p>
+                {/* Free visit note */}
+                <div className="bg-[var(--blue-brand)]/10 border border-[var(--blue-brand)]/30 border-t-0 p-6">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle size={16} className="text-[var(--blue-brand)] mt-0.5 shrink-0" aria-hidden="true" />
+                    <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+                      <strong className="text-[var(--text-primary)]">Бесплатный выезд</strong> технического директора на объект в пределах Московской области.
+                    </p>
+                  </div>
                 </div>
               </div>
 
