@@ -54,6 +54,75 @@ export function ServicesCatalogue() {
           </div>
         </div>
 
+        {/* What client gets + What we handle */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[var(--divider)] mb-20">
+          {/* What client gets */}
+          <div className="bg-[var(--navy-card)] p-10 border border-[var(--blue-brand)]/20">
+            <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-6">
+              Что получает клиент
+            </p>
+            <ul className="space-y-4">
+              {[
+                "Один подрядчик вместо четырёх — проектировщик, строитель, сетевик, надзор",
+                "Контроль всех этапов через единую точку ответственности",
+                "Экономия времени: не нужно вести переговоры с каждым участником",
+                "Снижение рисков: бюджет и сроки фиксируются в одном договоре",
+                "Готовый объект с полным пакетом исполнительной документации",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <CheckCircle2 size={14} className="text-[var(--blue-brand)] mt-0.5 shrink-0" aria-hidden="true" />
+                  <span className="text-[var(--text-primary)] text-sm leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* What we handle */}
+          <div className="bg-[var(--navy-deep)] p-10">
+            <p className="text-[var(--text-secondary)] text-xs font-semibold uppercase tracking-[0.3em] mb-6">
+              Что мы берём на себя
+            </p>
+            <ul className="space-y-4">
+              {[
+                "Сбор исходных данных и технических условий от РСО",
+                "Проектирование стадий П и РД, прохождение экспертизы",
+                "Согласования с органами надзора и техническим заказчиком",
+                "Строительство и монтаж инженерных сетей собственным ресурсом",
+                "Сдача объекта: госкомиссия, разрешение на ввод, документация",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <ArrowRight size={14} className="text-[var(--blue-brand)] mt-0.5 shrink-0" aria-hidden="true" />
+                  <span className="text-[var(--text-secondary)] text-sm leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Process steps */}
+        <div className="mb-20">
+          <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-8">
+            Этапы работы
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-5 gap-px bg-[var(--divider)]">
+            {[
+              { num: "01", label: "Заявка", desc: "Обсуждение объекта, выезд на площадку" },
+              { num: "02", label: "Расчёт", desc: "Смета с разбивкой по видам работ" },
+              { num: "03", label: "Проект", desc: "Стадии П и РД, экспертиза, разрешение" },
+              { num: "04", label: "Строительство", desc: "СМР + инженерные сети по графику" },
+              { num: "05", label: "Сдача", desc: "Ввод в эксплуатацию, документация" },
+            ].map((step, i, arr) => (
+              <div key={step.num} className="bg-[var(--navy-card)] hover:bg-[var(--navy-elevated)] p-7 transition-colors duration-300 relative">
+                <span className="text-[var(--blue-brand)]/20 font-black text-5xl leading-none block mb-4" aria-hidden="true">{step.num}</span>
+                <p className="text-[var(--text-primary)] font-bold text-base mb-2">{step.label}</p>
+                <p className="text-[var(--text-secondary)] text-xs leading-relaxed">{step.desc}</p>
+                {i < arr.length - 1 && (
+                  <ArrowRight size={14} className="text-[var(--blue-brand)]/40 absolute -right-2 top-1/2 -translate-y-1/2 hidden sm:block z-10" aria-hidden="true" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Services list */}
         <div className="space-y-1">
           {services.map((service, index) => {
