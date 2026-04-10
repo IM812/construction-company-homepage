@@ -29,16 +29,16 @@ export function ContactsSection() {
                 Телефоны
               </p>
               <a
-                href="tel:+74951234567"
+                href="tel:+74993909473"
                 className="block text-[var(--text-primary)] font-bold text-lg hover:text-[var(--blue-brand)] transition-colors mb-1"
               >
-                +7 (495) 123-45-67
+                8 (499) 390-94-73
               </a>
               <a
-                href="tel:+79161234567"
+                href="tel:+79299857900"
                 className="block text-[var(--text-primary)] font-bold text-lg hover:text-[var(--blue-brand)] transition-colors"
               >
-                +7 (916) 123-45-67
+                8 (929) 985-79-00
               </a>
             </div>
 

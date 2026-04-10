@@ -67,10 +67,10 @@ export default function ContactsPage() {
                   <div className="flex flex-col gap-6">
                     <div>
                       <a
-                        href="tel:+74951234567"
+                        href="tel:+74993909473"
                         className="block text-[var(--text-primary)] font-black text-2xl lg:text-3xl hover:text-[var(--blue-brand)] transition-colors leading-tight"
                       >
-                        +7 (495) 123-45-67
+                        8 (499) 390-94-73
                       </a>
                       <p className="text-[var(--text-secondary)] text-sm mt-1.5">
                         Офис, Москва — Пн–Пт 9:00–18:00
@@ -78,10 +78,10 @@ export default function ContactsPage() {
                     </div>
                     <div className="pt-4 border-t border-[var(--divider)]">
                       <a
-                        href="tel:+79161234567"
+                        href="tel:+79299857900"
                         className="block text-[var(--text-primary)] font-black text-2xl lg:text-3xl hover:text-[var(--blue-brand)] transition-colors leading-tight"
                       >
-                        +7 (916) 123-45-67
+                        8 (929) 985-79-00
                       </a>
                       <p className="text-[var(--text-secondary)] text-sm mt-1.5">
                         Отдел продаж — с 8:00 до 20:00

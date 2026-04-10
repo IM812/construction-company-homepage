@@ -16,8 +16,8 @@ const NAV_LINKS = [
 ]
 
 const PHONES = [
-  { label: "+7 (495) 123-45-67", href: "tel:+74951234567", sublabel: "Офис, Москва" },
-  { label: "+7 (916) 123-45-67", href: "tel:+79161234567", sublabel: "Отдел продаж" },
+  { label: "8 (499) 390-94-73", href: "tel:+74993909473", sublabel: "Офис, Москва" },
+  { label: "8 (929) 985-79-00", href: "tel:+79299857900", sublabel: "Отдел продаж" },
 ]
 
 export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
