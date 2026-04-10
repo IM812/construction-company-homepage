@@ -1,9 +1,17 @@
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
 import { ArrowRight, CheckCircle2 } from "lucide-react"
 import { services } from "@/lib/services-data"
+import type { ServiceData } from "@/lib/services-data"
+import { ServiceModal } from "@/components/service-modal"
 
 export function ServicesCatalogue() {
+  const [activeService, setActiveService] = useState<ServiceData | null>(null)
+
   return (
+    <>
     <section className="py-28 bg-[var(--navy-deep)]" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
@@ -103,13 +111,13 @@ export function ServicesCatalogue() {
 
                     {/* Right: CTA */}
                     <div className="lg:w-48 shrink-0 flex lg:flex-col gap-3">
-                      <Link
-                        href={`/services/${service.slug}`}
-                        className="flex-1 lg:flex-none bg-[var(--blue-brand)] hover:bg-[var(--blue-hover)] text-white font-bold text-sm px-6 py-4 uppercase tracking-wider transition-colors duration-200 flex items-center justify-center gap-2 whitespace-nowrap"
+                      <button
+                        onClick={() => setActiveService(service)}
+                        className="flex-1 lg:flex-none bg-[var(--blue-brand)] hover:bg-[var(--blue-hover)] text-white font-bold text-sm px-6 py-4 uppercase tracking-wider transition-colors duration-200 flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer"
                       >
                         Подробнее
                         <ArrowRight size={16} aria-hidden="true" />
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -134,5 +142,8 @@ export function ServicesCatalogue() {
         </div>
       </div>
     </section>
+
+    <ServiceModal service={activeService} onClose={() => setActiveService(null)} />
+    </>
   )
 }

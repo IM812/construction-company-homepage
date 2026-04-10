@@ -1,7 +1,13 @@
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
 import { FileText, Building2, Wrench, Zap, ArrowRight } from "lucide-react"
+import { services as allServices } from "@/lib/services-data"
+import type { ServiceData } from "@/lib/services-data"
+import { ServiceModal } from "@/components/service-modal"
 
-const services = [
+const localServices = [
   {
     slug: "proektirovanie",
     icon: FileText,
@@ -37,7 +43,15 @@ const services = [
 ]
 
 export function ServicesSection() {
+  const [activeService, setActiveService] = useState<ServiceData | null>(null)
+
+  const openModal = (slug: string) => {
+    const found = allServices.find((s) => s.slug === slug) ?? null
+    setActiveService(found)
+  }
+
   return (
+    <>
     <section id="services" className="py-28 bg-[var(--navy-deep)]" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
@@ -61,13 +75,13 @@ export function ServicesSection() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[var(--divider)]">
-          {services.map((service) => {
+          {localServices.map((service) => {
             const Icon = service.icon
             return (
-              <Link
+              <button
                 key={service.slug}
-                href={`/services/${service.slug}`}
-                className="bg-[var(--navy-deep)] hover:bg-[var(--navy-card)] p-10 group transition-colors duration-300 flex flex-col"
+                onClick={() => openModal(service.slug)}
+                className="bg-[var(--navy-deep)] hover:bg-[var(--navy-card)] p-10 group transition-colors duration-300 flex flex-col text-left cursor-pointer"
               >
                 <div className="flex items-start justify-between mb-8">
                   <div className="w-14 h-14 bg-[var(--navy-elevated)] group-hover:bg-[var(--blue-brand)] flex items-center justify-center transition-colors duration-300">
@@ -93,7 +107,7 @@ export function ServicesSection() {
                     </li>
                   ))}
                 </ul>
-              </Link>
+              </button>
             )
           })}
         </div>
@@ -109,5 +123,8 @@ export function ServicesSection() {
         </div>
       </div>
     </section>
+
+    <ServiceModal service={activeService} onClose={() => setActiveService(null)} />
+    </>
   )
 }
