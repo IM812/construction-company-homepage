@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Phone, Menu, X } from "lucide-react"
 
 interface SiteHeaderProps {
@@ -8,12 +9,10 @@ interface SiteHeaderProps {
 }
 
 const NAV_LINKS = [
-  { label: "Услуги",         href: "#services" },
-  { label: "Проектирование", href: "/proektirovanie" },
-  { label: "Преимущества",   href: "#advantages" },
-  { label: "Процесс",        href: "#process" },
-  { label: "Кейсы",          href: "#cases" },
-  { label: "Контакты",       href: "#contacts" },
+  { label: "Главная",        href: "/" },
+  { label: "Услуги",         href: "/services" },
+  { label: "О компании",     href: "/about" },
+  { label: "Контакты",       href: "/contacts" },
 ]
 
 const PHONES = [
@@ -37,7 +36,7 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
           <div className="flex items-center h-[72px] gap-8">
 
             {/* ── LEFT: Logo ── */}
-            <a
+            <Link
               href="/"
               aria-label="СтройГенПодряд — на главную"
               className="flex items-center gap-3 shrink-0 group"
@@ -82,7 +81,7 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
                   Генеральный подрядчик
                 </span>
               </div>
-            </a>
+            </Link>
 
             {/* ── CENTER: Navigation ── */}
             <nav
@@ -90,7 +89,7 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
               className="hidden lg:flex items-center justify-center flex-1 gap-1"
             >
               {NAV_LINKS.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   className="relative px-3 py-2 text-[13px] font-semibold uppercase tracking-[0.08em] transition-colors duration-150 group/nav"
@@ -104,7 +103,7 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
                     className="absolute bottom-0 left-3 right-3 h-px scale-x-0 group-hover/nav:scale-x-100 transition-transform duration-200 origin-left"
                     style={{ background: "var(--blue-brand)" }}
                   />
-                </a>
+                </Link>
               ))}
             </nav>
 
@@ -184,7 +183,7 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
           <div className="max-w-[1440px] mx-auto px-6 py-6 flex flex-col gap-1">
             <nav aria-label="Мобильная навигация" className="flex flex-col gap-1">
               {NAV_LINKS.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
@@ -195,7 +194,7 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
                   }}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
