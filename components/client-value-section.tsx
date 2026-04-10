@@ -1,30 +1,30 @@
-import { CheckSquare, Clock, Eye, BarChart2 } from "lucide-react"
+import { X, CheckCircle2 } from "lucide-react"
 
-const values = [
-  {
-    icon: CheckSquare,
-    title: "Результат под ключ",
-    description:
-      "Сдаём объект с полным комплектом исполнительной документации, разрешением на ввод и готовностью к немедленной эксплуатации.",
-  },
-  {
-    icon: Clock,
-    title: "Экономия времени",
-    description:
-      "Вам не нужно вести переговоры с проектировщиками, строителями и инженерами отдельно. Один звонок — один договор — один ответственный.",
-  },
-  {
-    icon: Eye,
-    title: "Контроль на каждом этапе",
-    description:
-      "Еженедельные отчёты с фотофиксацией, доступ к ходу работ. Технический директор ведёт объект лично от заявки до сдачи.",
-  },
-  {
-    icon: BarChart2,
-    title: "Прозрачность бюджета",
-    description:
-      "Смета с разбивкой по позициям фиксируется в договоре. Без скрытых расходов и пересмотра стоимости в процессе строительства.",
-  },
+const withoutUs = [
+  "Поиск и проверка проектировщика, генподрядчика, субподрядчиков по сетям",
+  "Согласование интерфейсов между участниками — ответственность размыта",
+  "Контроль каждого подрядчика вручную, риск срыва сроков",
+  "Пересмотр бюджета при смене или провале одного из подрядчиков",
+  "Претензионная работа: кто виноват в дефекте — непонятно",
+  "Отдельные договоры с каждым участником, разные гарантийные условия",
+]
+
+const withUs = [
+  "Один договор генподряда охватывает весь объём работ",
+  "Единая точка ответственности за сроки, бюджет и качество",
+  "Координацию всех подрядчиков и субподрядчиков берём на себя",
+  "Фиксированный бюджет — пересмотр цены в одностороннем порядке невозможен",
+  "Гарантия 5 лет на СМР, единый гарантийный паспорт объекта",
+  "Еженедельная отчётность: фотофиксация, КС-2, финансовый мониторинг",
+]
+
+const weHandle = [
+  { title: "Проектирование", desc: "Стадии П и РД, BIM-модель, экспертиза, разрешение на строительство" },
+  { title: "Строительство", desc: "Нулевой цикл, надземная часть, отделка — собственным ресурсом" },
+  { title: "Инженерные сети", desc: "ОВиК, ВК, электроснабжение, слаботочные, пожарная защита" },
+  { title: "Логистика", desc: "Закупка материалов напрямую с заводов, собственный парк техники" },
+  { title: "Технический надзор", desc: "Авторский и строительный контроль на каждом этапе работ" },
+  { title: "Сдача объекта", desc: "Госкомиссия, разрешение на ввод, исполнительная документация" },
 ]
 
 export function ClientValueSection() {
@@ -36,48 +36,87 @@ export function ClientValueSection() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
+        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-b border-[var(--divider)] pb-12">
           <div>
             <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-4">
-              04 / Что вы получаете
+              04 / Ценность генподряда
             </p>
             <h2
               id="client-value-heading"
               className="text-[var(--text-primary)] font-black text-4xl lg:text-5xl leading-tight text-balance"
             >
-              Что получает<br />заказчик
+              Что получает клиент,<br />работая с нами
             </h2>
           </div>
           <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-sm">
-            Не абстрактные обещания — конкретные результаты, закреплённые в договоре.
+            Генподряд снимает с заказчика координацию всех участников строительного проекта. Ниже — конкретная разница.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--divider)]">
-          {values.map((item) => {
-            const Icon = item.icon
-            return (
+        {/* Comparison table */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[var(--divider)] mb-20">
+          {/* Without us */}
+          <div className="bg-[var(--navy-elevated)] p-8 lg:p-10">
+            <p className="text-[var(--text-secondary)] text-xs font-semibold uppercase tracking-[0.25em] mb-6 flex items-center gap-2">
+              <X size={14} className="text-red-400" aria-hidden="true" />
+              Без генподрядчика
+            </p>
+            <ul className="space-y-4">
+              {withoutUs.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <X size={14} className="text-red-400/70 mt-0.5 shrink-0" aria-hidden="true" />
+                  <span className="text-[var(--text-secondary)] text-sm leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* With us */}
+          <div className="bg-[var(--navy-card)] p-8 lg:p-10 border border-[var(--blue-brand)]/20">
+            <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.25em] mb-6 flex items-center gap-2">
+              <CheckCircle2 size={14} aria-hidden="true" />
+              С генподрядчиком СтройГенПодряд
+            </p>
+            <ul className="space-y-4">
+              {withUs.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <CheckCircle2 size={14} className="text-[var(--blue-brand)] mt-0.5 shrink-0" aria-hidden="true" />
+                  <span className="text-[var(--text-primary)] text-sm leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* What we handle */}
+        <div>
+          <h3 className="text-[var(--text-primary)] font-black text-2xl lg:text-3xl mb-10 border-b border-[var(--divider)] pb-6">
+            Что мы берём на себя
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--divider)]">
+            {weHandle.map((item, i) => (
               <div
                 key={item.title}
-                className="bg-[var(--navy-elevated)] hover:bg-[var(--navy-card)] p-8 group transition-colors duration-300"
+                className="bg-[var(--navy-elevated)] hover:bg-[var(--navy-card)] p-7 transition-colors duration-300 group"
               >
-                <div className="w-12 h-12 bg-[var(--navy-deep)] flex items-center justify-center mb-6 group-hover:bg-[var(--blue-brand)] transition-colors duration-300">
-                  <Icon
-                    size={22}
-                    className="text-[var(--blue-brand)] group-hover:text-white transition-colors duration-300"
+                <div className="flex items-center gap-3 mb-3">
+                  <span
+                    className="text-[var(--blue-brand)] font-black text-xs w-7 h-7 border border-[var(--blue-brand)]/40 flex items-center justify-center shrink-0"
                     aria-hidden="true"
-                  />
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h4 className="text-[var(--text-primary)] font-bold text-base">{item.title}</h4>
                 </div>
-                <h3 className="text-[var(--text-primary)] font-bold text-lg mb-3 leading-tight">
-                  {item.title}
-                </h3>
-                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
-                  {item.description}
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed pl-10">
+                  {item.desc}
                 </p>
               </div>
-            )
-          })}
+            ))}
+          </div>
         </div>
+
       </div>
     </section>
   )

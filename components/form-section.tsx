@@ -20,30 +20,37 @@ export function FormSection() {
               Технический директор перезвонит в течение 30 минут и даст предварительную оценку стоимости вашего объекта. Бесплатно.
             </p>
 
-            <div className="space-y-6 border-t border-[var(--divider)] pt-8">
+            <div className="space-y-0 border-t border-[var(--divider)] pt-8">
               {[
                 {
-                  title: "Имя, телефон, услуга",
-                  desc: "Укажите тип работ и площадь — так расчёт будет точнее",
+                  title: "Укажите услугу и площадь объекта",
+                  desc: "Позволяет подготовить точный расчёт без лишних уточнений",
                 },
                 {
                   title: "Смета за 3 рабочих дня",
-                  desc: "Детальная разбивка по видам работ и материалам",
+                  desc: "Развёрнутая разбивка по видам работ и материалам — без округлений",
                 },
                 {
-                  title: "Выезд на объект — бесплатно",
-                  desc: "В пределах МО. Пн–Пт, 9:00–18:00",
+                  title: "Звонок технического директора",
+                  desc: "В течение 30 минут в рабочее время. Выезд на объект в МО — бесплатно",
                 },
                 {
                   title: "Фиксированная цена в договоре",
-                  desc: "Бюджет не пересматривается в процессе строительства",
+                  desc: "Смета закрепляется как приложение к контракту. Пересмотр — только по дополнительному соглашению",
                 },
-              ].map((item) => (
-                <div key={item.title} className="flex gap-4">
-                  <div className="w-1 bg-[var(--blue-brand)] shrink-0 mt-1" style={{ minHeight: "44px" }} aria-hidden="true" />
+                {
+                  title: "Гарантия на СМР — 5 лет",
+                  desc: "Все работы по договору генерального подряда покрыты гарантийными обязательствами",
+                },
+              ].map((item, i, arr) => (
+                <div
+                  key={item.title}
+                  className={`flex gap-4 py-5 ${i < arr.length - 1 ? "border-b border-[var(--divider)]" : ""}`}
+                >
+                  <div className="w-1 bg-[var(--blue-brand)] shrink-0 self-stretch" aria-hidden="true" />
                   <div>
-                    <p className="text-[var(--text-primary)] font-bold text-base">{item.title}</p>
-                    <p className="text-[var(--text-secondary)] text-sm leading-relaxed mt-0.5">{item.desc}</p>
+                    <p className="text-[var(--text-primary)] font-bold text-sm uppercase tracking-wide">{item.title}</p>
+                    <p className="text-[var(--text-secondary)] text-sm leading-relaxed mt-1">{item.desc}</p>
                   </div>
                 </div>
               ))}

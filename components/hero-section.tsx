@@ -46,19 +46,30 @@ export function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-40">
         <div className="max-w-3xl">
           <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-6">
-            Генеральный подрядчик · Москва
+            Генеральный подрядчик полного цикла · Москва
           </p>
           <h1 className="text-[var(--text-primary)] font-black text-5xl md:text-6xl lg:text-7xl leading-[1.03] tracking-tight text-balance mb-6">
             Генподряд под ключ —{" "}
             <span className="text-[var(--blue-brand)]">от проектирования</span>{" "}
             до ввода в эксплуатацию
           </h1>
-          <p className="text-[var(--text-secondary)] text-xl leading-relaxed max-w-2xl mb-4">
-            Берём на себя весь цикл работ и координацию всех подрядчиков.
+          <p className="text-[var(--text-secondary)] text-xl leading-relaxed max-w-2xl mb-5">
+            Берём на себя координацию всех этапов: проектирование, строительство, инженерные сети, сдача объекта. Один договор — полная ответственность за результат.
           </p>
-          <p className="text-[var(--text-secondary)] text-base leading-relaxed max-w-xl mb-10">
-            Промышленные, коммерческие и жилые объекты от 5 до 60 млн ₽. Один договор — полная ответственность. Работаем по всей России.
-          </p>
+          {/* Inline fact strip */}
+          <div className="flex flex-wrap gap-x-8 gap-y-2 mb-10">
+            {[
+              "Собственный ресурс: 400+ рабочих",
+              "80 единиц спецтехники",
+              "Объекты 5–60 млн ₽",
+              "СРО НОСТРОЙ / НОПРИЗ",
+            ].map((fact) => (
+              <span key={fact} className="flex items-center gap-2 text-[var(--text-secondary)] text-sm">
+                <span className="w-1.5 h-1.5 bg-[var(--blue-brand)] rounded-full shrink-0" aria-hidden="true" />
+                {fact}
+              </span>
+            ))}
+          </div>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               href="/contacts"
