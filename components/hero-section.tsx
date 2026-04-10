@@ -46,23 +46,26 @@ export function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-40">
         <div className="max-w-3xl">
           <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-6">
-            Генеральный подрядчик полного цикла · Москва
+            Генеральный подрядчик · Москва · СРО НОСТРОЙ / НОПРИЗ
           </p>
           <h1 className="text-[var(--text-primary)] font-black text-5xl md:text-6xl lg:text-7xl leading-[1.03] tracking-tight text-balance mb-6">
-            Генподряд под ключ —{" "}
-            <span className="text-[var(--blue-brand)]">от проектирования</span>{" "}
-            до ввода в эксплуатацию
+            Вы получаете готовый объект.{" "}
+            <span className="text-[var(--blue-brand)]">Мы берём</span>{" "}
+            на себя всё остальное.
           </h1>
-          <p className="text-[var(--text-secondary)] text-xl leading-relaxed max-w-2xl mb-5">
-            Берём на себя координацию всех этапов: проектирование, строительство, инженерные сети, сдача объекта. Один договор — полная ответственность за результат.
+          <p className="text-[var(--text-primary)] text-xl leading-relaxed max-w-2xl mb-3 font-medium">
+            Один договор закрывает весь цикл: проектирование, строительство, инженерные сети, ввод в эксплуатацию.
           </p>
-          {/* Inline fact strip */}
+          <p className="text-[var(--text-secondary)] text-base leading-relaxed max-w-xl mb-8">
+            Вам не нужно искать проектировщика, нанимать строителей, контролировать монтажников и гонять каждого по срокам. Это наша работа. Ваша задача — принять готовый объект.
+          </p>
+          {/* Result strip */}
           <div className="flex flex-wrap gap-x-8 gap-y-2 mb-10">
             {[
-              "Собственный ресурс: 400+ рабочих",
-              "80 единиц спецтехники",
-              "Объекты 5–60 млн ₽",
-              "СРО НОСТРОЙ / НОПРИЗ",
+              "230+ объектов сдано под ключ",
+              "0 срывов контрактных сроков",
+              "Смета фиксируется в договоре",
+              "Гарантия СМР — 5 лет",
             ].map((fact) => (
               <span key={fact} className="flex items-center gap-2 text-[var(--text-secondary)] text-sm">
                 <span className="w-1.5 h-1.5 bg-[var(--blue-brand)] rounded-full shrink-0" aria-hidden="true" />
@@ -75,7 +78,7 @@ export function HeroSection() {
               href="/contacts"
               className="group bg-[var(--blue-brand)] hover:bg-[var(--blue-hover)] text-[var(--text-primary)] font-bold text-base px-8 py-4 uppercase tracking-wider transition-colors duration-200 flex items-center justify-center gap-3"
             >
-              Получить расчёт стоимости
+              Получить расчёт за 3 дня
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </Link>
             <Link
