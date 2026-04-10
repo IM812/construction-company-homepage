@@ -5,21 +5,21 @@ export function ContactsSection() {
 
   return (
     <>
-      <section id="contacts" className="py-28 bg-[var(--navy-card)]" aria-labelledby="contacts-heading">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="mb-16">
-            <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-4">
+      <section id="contacts" className="py-16 sm:py-28 bg-[var(--navy-card)]" aria-labelledby="contacts-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 sm:mb-16">
+            <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-3 sm:mb-4">
               06 / Контакты
             </p>
             <h2
               id="contacts-heading"
-              className="text-[var(--text-primary)] font-black text-4xl lg:text-5xl leading-tight text-balance"
+              className="text-[var(--text-primary)] font-black text-2xl sm:text-4xl lg:text-5xl leading-tight text-balance"
             >
               Свяжитесь с нами
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--divider)]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--divider)]">
             {/* Phones */}
             <div className="bg-[var(--navy-card)] p-8">
               <div className="w-10 h-10 bg-[var(--navy-elevated)] flex items-center justify-center mb-5">
@@ -106,7 +106,7 @@ export function ContactsSection() {
           </div>
 
           {/* Address detail strip */}
-          <div className="mt-4 border border-[var(--divider)] border-t-0 bg-[var(--navy-elevated)] px-8 py-6 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-12">
+          <div className="mt-4 border border-[var(--divider)] border-t-0 bg-[var(--navy-elevated)] px-4 sm:px-8 py-5 sm:py-6 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-12">
             <div className="flex items-start gap-3">
               <MapPin size={16} className="text-[var(--blue-brand)] mt-0.5 shrink-0" aria-hidden="true" />
               <div>

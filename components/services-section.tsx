@@ -52,23 +52,23 @@ export function ServicesSection() {
 
   return (
     <>
-    <section id="services" className="py-28 bg-[var(--navy-deep)]" aria-labelledby="services-heading">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="services" className="py-16 sm:py-28 bg-[var(--navy-deep)]" aria-labelledby="services-heading">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-b border-[var(--divider)] pb-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-10 sm:mb-16 border-b border-[var(--divider)] pb-8 sm:pb-12">
           <div>
-            <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-4">
+            <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-3 sm:mb-4">
               01 / Услуги
             </p>
             <h2
               id="services-heading"
-              className="text-[var(--text-primary)] font-black text-4xl lg:text-5xl leading-tight text-balance"
+              className="text-[var(--text-primary)] font-black text-2xl sm:text-4xl lg:text-5xl leading-tight text-balance"
             >
               Полный цикл —<br />один подрядчик
             </h2>
           </div>
-          <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-sm">
+          <p className="text-[var(--text-secondary)] text-base sm:text-lg leading-relaxed max-w-sm">
             Закрываем все этапы строительного проекта в рамках одного договора. Вы работаете с одной командой от начала до конца.
           </p>
         </div>

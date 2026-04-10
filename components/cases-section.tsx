@@ -47,15 +47,15 @@ export function CasesSection() {
   const current = cases[activeCase]
 
   return (
-    <section id="cases" className="py-28 bg-[var(--navy-card)]" aria-labelledby="cases-heading">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="mb-16">
-          <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-4">
+    <section id="cases" className="py-16 sm:py-28 bg-[var(--navy-card)]" aria-labelledby="cases-heading">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-10 sm:mb-16">
+          <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-3 sm:mb-4">
             04 / Кейсы
           </p>
           <h2
             id="cases-heading"
-            className="text-[var(--text-primary)] font-black text-4xl lg:text-5xl leading-tight text-balance"
+            className="text-[var(--text-primary)] font-black text-2xl sm:text-4xl lg:text-5xl leading-tight text-balance"
           >
             Реализованные объекты
           </h2>
