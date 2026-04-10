@@ -14,7 +14,8 @@ export function ContactForm({ compact = false, onSuccess }: ContactFormProps) {
     company: "",
     phone: "",
     email: "",
-    type: "",
+    service: "",
+    area: "",
     message: "",
   })
   const [loading, setLoading] = useState(false)
@@ -126,42 +127,56 @@ export function ContactForm({ compact = false, onSuccess }: ContactFormProps) {
           />
         </div>
 
-        <div className={compact ? "" : "md:col-span-2"}>
-          <label htmlFor="type" className="block text-[var(--text-secondary)] text-xs uppercase tracking-widest mb-2">
-            Тип объекта
+        <div>
+          <label htmlFor="service" className="block text-[var(--text-secondary)] text-xs uppercase tracking-widest mb-2">
+            Услуга
           </label>
           <select
-            id="type"
-            name="type"
-            value={form.type}
+            id="service"
+            name="service"
+            value={form.service}
             onChange={handleChange}
             className={`${inputClass} cursor-pointer`}
           >
-            <option value="">— Выберите тип —</option>
-            <option value="industrial">Промышленный объект</option>
-            <option value="commercial">Коммерческая недвижимость</option>
-            <option value="residential">Жилое строительство</option>
-            <option value="reconstruction">Реконструкция</option>
-            <option value="other">Другое</option>
+            <option value="">— Выберите услугу —</option>
+            <option value="genpodrjad">Генподряд под ключ</option>
+            <option value="proektirovanie">Проектирование</option>
+            <option value="stroitelstvo">Строительство</option>
+            <option value="rekonstruktsiya">Реконструкция</option>
+            <option value="inzhenernye-seti">Инженерные сети</option>
+            <option value="nadzor">Технический надзор</option>
           </select>
         </div>
 
-        {!compact && (
-          <div className="md:col-span-2">
-            <label htmlFor="message" className="block text-[var(--text-secondary)] text-xs uppercase tracking-widest mb-2">
-              Описание проекта
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              value={form.message}
-              onChange={handleChange}
-              placeholder="Кратко опишите объект: площадь, этажность, сроки, особые требования..."
-              className={`${inputClass} resize-none`}
-            />
-          </div>
-        )}
+        <div>
+          <label htmlFor="area" className="block text-[var(--text-secondary)] text-xs uppercase tracking-widest mb-2">
+            Площадь объекта, м²
+          </label>
+          <input
+            id="area"
+            name="area"
+            type="text"
+            value={form.area}
+            onChange={handleChange}
+            placeholder="Например: 2 500"
+            className={inputClass}
+          />
+        </div>
+
+        <div className={compact ? "" : "md:col-span-2"}>
+          <label htmlFor="message" className="block text-[var(--text-secondary)] text-xs uppercase tracking-widest mb-2">
+            Комментарий
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={compact ? 3 : 4}
+            value={form.message}
+            onChange={handleChange}
+            placeholder="Этажность, сроки, особые условия, текущая стадия проекта..."
+            className={`${inputClass} resize-none`}
+          />
+        </div>
       </div>
 
       {error && (

@@ -1,54 +1,38 @@
-import {
-  Building2,
-  FileText,
-  Wrench,
-  Truck,
-  Shield,
-  Layers,
-} from "lucide-react"
+import Link from "next/link"
+import { FileText, Building2, Wrench, Zap, ArrowRight } from "lucide-react"
 
 const services = [
   {
+    slug: "proektirovanie",
     icon: FileText,
     title: "Проектирование",
     description:
-      "Архитектурное, конструктивное и инженерное проектирование. Прохождение экспертизы, получение разрешений.",
-    tag: "С нуля",
+      "Архитектурное, конструктивное и инженерное проектирование полного цикла. Стадии П и РД, BIM-модель, прохождение экспертизы, получение разрешения на строительство.",
+    items: ["Предпроектные работы", "Стадия П", "Государственная экспертиза", "Рабочая документация"],
   },
   {
+    slug: "stroitelstvo",
     icon: Building2,
-    title: "Промышленное строительство",
+    title: "Строительство",
     description:
-      "Заводы, производственные цеха, складские комплексы, энергетические объекты любой сложности.",
-    tag: "Под ключ",
+      "Промышленные объекты, коммерческая недвижимость, жилые комплексы. Собственный ресурс: 400+ рабочих, 80 единиц спецтехники. Контрактная ответственность за сроки и бюджет.",
+    items: ["Промышленные объекты", "Коммерческая недвижимость", "Жилые комплексы", "Объекты 5–60 млн ₽"],
   },
   {
-    icon: Layers,
-    title: "Коммерческое строительство",
-    description:
-      "Офисные центры, торговые комплексы, гостиницы, многофункциональные здания класса А и B+.",
-    tag: "Под ключ",
-  },
-  {
+    slug: "rekonstruktsiya",
     icon: Wrench,
-    title: "Реконструкция и модернизация",
+    title: "Реконструкция",
     description:
-      "Капитальный ремонт, перепрофилирование объектов, усиление конструкций без остановки производства.",
-    tag: "Опыт 10+ лет",
+      "Капитальный ремонт, перепрофилирование, усиление несущих конструкций. Работаем без остановки действующего производства. Опыт на объектах класса КС-2 и КС-3.",
+    items: ["Без остановки производства", "Усиление конструкций", "Перепрофилирование", "КС-2 и КС-3"],
   },
   {
-    icon: Truck,
-    title: "Логистика и снабжение",
+    slug: "inzhenernye-seti",
+    icon: Zap,
+    title: "Инженерные сети",
     description:
-      "Собственная база строительной техники. Полное материально-техническое обеспечение объекта.",
-    tag: "Собственный парк",
-  },
-  {
-    icon: Shield,
-    title: "Авторский и технический надзор",
-    description:
-      "Контроль качества на всех этапах строительства. Соответствие проектной документации и нормативам.",
-    tag: "Гарантия",
+      "Проектирование и монтаж всех разделов ИТМ: электроснабжение, водоснабжение и канализация, теплоснабжение, вентиляция, слаботочные системы, пожарная защита.",
+    items: ["Электроснабжение", "ВК и теплоснабжение", "Вентиляция и кондиционирование", "Пожарная защита"],
   },
 ]
 
@@ -56,6 +40,7 @@ export function ServicesSection() {
   return (
     <section id="services" className="py-28 bg-[var(--navy-deep)]" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
+
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-b border-[var(--divider)] pb-12">
           <div>
@@ -66,40 +51,61 @@ export function ServicesSection() {
               id="services-heading"
               className="text-[var(--text-primary)] font-black text-4xl lg:text-5xl leading-tight text-balance"
             >
-              Полный спектр<br />строительных услуг
+              Полный цикл —<br />один подрядчик
             </h2>
           </div>
           <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-sm">
-            Берёмся за объект любой сложности и несём полную ответственность от первого чертежа до ввода в эксплуатацию.
+            Закрываем все этапы строительного проекта в рамках одного договора. Вы работаете с одной командой от начала до конца.
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--divider)]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[var(--divider)]">
           {services.map((service) => {
             const Icon = service.icon
             return (
-              <div
-                key={service.title}
-                className="bg-[var(--navy-deep)] hover:bg-[var(--navy-card)] p-8 group transition-colors duration-300 cursor-default"
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className="bg-[var(--navy-deep)] hover:bg-[var(--navy-card)] p-10 group transition-colors duration-300 flex flex-col"
               >
-                <div className="flex items-start justify-between mb-6">
-                  <div className="w-12 h-12 bg-[var(--navy-elevated)] group-hover:bg-[var(--blue-brand)] flex items-center justify-center transition-colors duration-300">
-                    <Icon size={22} className="text-[var(--blue-brand)] group-hover:text-white transition-colors duration-300" aria-hidden="true" />
+                <div className="flex items-start justify-between mb-8">
+                  <div className="w-14 h-14 bg-[var(--navy-elevated)] group-hover:bg-[var(--blue-brand)] flex items-center justify-center transition-colors duration-300">
+                    <Icon size={24} className="text-[var(--blue-brand)] group-hover:text-white transition-colors duration-300" aria-hidden="true" />
                   </div>
-                  <span className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-widest border border-[var(--blue-brand)]/30 px-2 py-1">
-                    {service.tag}
-                  </span>
+                  <ArrowRight
+                    size={20}
+                    className="text-[var(--text-secondary)] opacity-0 group-hover:opacity-100 group-hover:text-[var(--blue-brand)] -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
+                    aria-hidden="true"
+                  />
                 </div>
-                <h3 className="text-[var(--text-primary)] font-bold text-xl mb-3">
+                <h3 className="text-[var(--text-primary)] font-bold text-2xl mb-4">
                   {service.title}
                 </h3>
-                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-8 flex-1">
                   {service.description}
                 </p>
-              </div>
+                <ul className="grid grid-cols-2 gap-x-4 gap-y-2 border-t border-[var(--divider)] pt-6">
+                  {service.items.map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-[var(--text-secondary)] text-xs">
+                      <span className="w-1 h-1 bg-[var(--blue-brand)] rounded-full shrink-0" aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </Link>
             )
           })}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <Link
+            href="/services"
+            className="border border-[var(--divider)] hover:border-[var(--blue-brand)] text-[var(--text-primary)] font-bold text-sm px-8 py-4 uppercase tracking-wider transition-colors duration-200 flex items-center gap-3"
+          >
+            Все услуги
+            <ArrowRight size={16} aria-hidden="true" />
+          </Link>
         </div>
       </div>
     </section>

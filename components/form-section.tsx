@@ -8,36 +8,39 @@ export function FormSection() {
           {/* Left */}
           <div>
             <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-4">
-              05 / Заявка
+              06 / Заявка
             </p>
             <h2
               id="form-heading"
               className="text-[var(--text-primary)] font-black text-4xl lg:text-5xl leading-tight text-balance mb-6"
             >
-              Получите коммерческое предложение
+              Оставьте заявку — получите расчёт за 3 дня
             </h2>
             <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-10">
-              Оставьте заявку — наш технический директор перезвонит в течение 30 минут
-              и даст предварительную оценку стоимости вашего объекта.
+              Технический директор перезвонит в течение 30 минут и даст предварительную оценку стоимости вашего объекта. Бесплатно.
             </p>
 
             <div className="space-y-6 border-t border-[var(--divider)] pt-8">
               {[
                 {
-                  title: "Бесплатная консультация",
-                  desc: "Выезд специалиста на объект — бесплатно в пределах МО",
+                  title: "Имя, телефон, услуга",
+                  desc: "Укажите тип работ и площадь — так расчёт будет точнее",
                 },
                 {
-                  title: "Расчёт за 3 дня",
-                  desc: "Детальная смета с разбивкой по видам работ",
+                  title: "Смета за 3 рабочих дня",
+                  desc: "Детальная разбивка по видам работ и материалам",
                 },
                 {
-                  title: "Ответ в течение 30 минут",
-                  desc: "В рабочее время — пн–пт, 9:00–18:00",
+                  title: "Выезд на объект — бесплатно",
+                  desc: "В пределах МО. Пн–Пт, 9:00–18:00",
+                },
+                {
+                  title: "Фиксированная цена в договоре",
+                  desc: "Бюджет не пересматривается в процессе строительства",
                 },
               ].map((item) => (
                 <div key={item.title} className="flex gap-4">
-                  <div className="w-1 bg-[var(--blue-brand)] shrink-0 mt-1" style={{ minHeight: "40px" }} aria-hidden="true" />
+                  <div className="w-1 bg-[var(--blue-brand)] shrink-0 mt-1" style={{ minHeight: "44px" }} aria-hidden="true" />
                   <div>
                     <p className="text-[var(--text-primary)] font-bold text-base">{item.title}</p>
                     <p className="text-[var(--text-secondary)] text-sm leading-relaxed mt-0.5">{item.desc}</p>

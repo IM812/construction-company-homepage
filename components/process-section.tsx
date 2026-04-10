@@ -1,43 +1,41 @@
 const steps = [
   {
     step: "01",
-    title: "Заявка и консультация",
+    label: "Заявка",
     duration: "День 1",
+    title: "Заявка и консультация",
     description:
       "Принимаем запрос, назначаем встречу с техническим директором. Бесплатный выезд на объект в пределах МО.",
   },
   {
     step: "02",
-    title: "Технико-коммерческое предложение",
+    label: "Расчёт",
     duration: "3–5 дней",
+    title: "Технико-коммерческое предложение",
     description:
-      "Детальная смета, схема финансирования, предварительный календарный план. Фиксируем все ключевые параметры.",
+      "Детальная смета с разбивкой по видам работ, схема финансирования, контрактный график. Фиксируем бюджет и сроки.",
   },
   {
     step: "03",
+    label: "Проект",
+    duration: "По графику",
     title: "Проектирование",
-    duration: "По согласованному графику",
     description:
-      "Разработка ПД и РД, BIM-модель объекта, прохождение экспертизы, получение разрешения на строительство.",
+      "Разработка ПД и РД, BIM-модель, прохождение экспертизы, получение разрешения на строительство.",
   },
   {
     step: "04",
+    label: "Строительство",
+    duration: "По контракту",
     title: "Строительство",
-    duration: "По контрактному графику",
     description:
-      "Мобилизация ресурсов, строительство с еженедельной отчётностью. Онлайн-доступ к ходу работ через личный кабинет.",
+      "Мобилизация ресурсов. Еженедельная отчётность. Авторский и технический надзор на всех этапах.",
   },
   {
     step: "05",
-    title: "Контроль качества",
-    duration: "На всех этапах",
-    description:
-      "Авторский и технический надзор, входной контроль материалов, испытания конструкций согласно ГОСТ и СП.",
-  },
-  {
-    step: "06",
-    title: "Сдача и ввод в эксплуатацию",
+    label: "Сдача",
     duration: "Под ключ",
+    title: "Ввод в эксплуатацию",
     description:
       "Прохождение государственной комиссии, получение разрешения на ввод, передача исполнительной документации.",
   },
@@ -47,7 +45,8 @@ export function ProcessSection() {
   return (
     <section id="process" className="py-28 bg-[var(--navy-deep)]" aria-labelledby="process-heading">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-b border-[var(--divider)] pb-12">
           <div>
             <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-4">
               03 / Процесс
@@ -64,38 +63,45 @@ export function ProcessSection() {
           </p>
         </div>
 
-        <div className="relative">
-          {/* Connecting line */}
-          <div
-            className="hidden lg:block absolute top-8 left-0 right-0 h-px bg-[var(--divider)]"
-            aria-hidden="true"
-          />
+        {/* Flow strip */}
+        <div className="flex flex-col md:flex-row items-stretch gap-px bg-[var(--divider)] mb-16">
+          {steps.map((step, index) => (
+            <div
+              key={step.step}
+              className="flex-1 bg-[var(--navy-deep)] flex flex-col md:flex-row items-center gap-3 px-6 py-5"
+            >
+              <span className="text-[var(--blue-brand)] font-black text-lg shrink-0">{step.step}</span>
+              <span className="text-[var(--text-primary)] font-bold text-sm uppercase tracking-wide text-center md:text-left">
+                {step.label}
+              </span>
+              {index < steps.length - 1 && (
+                <span className="hidden md:block ml-auto text-[var(--divider)] text-xl font-light" aria-hidden="true">›</span>
+              )}
+            </div>
+          ))}
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-0">
-            {steps.map((step, index) => (
-              <div
-                key={step.step}
-                className="relative flex flex-col lg:border-r border-[var(--divider)] last:border-r-0 p-6 hover:bg-[var(--navy-card)] transition-colors duration-300"
-              >
-                {/* Step number circle */}
-                <div className="relative z-10 w-16 h-16 bg-[var(--navy-deep)] border-2 border-[var(--blue-brand)] flex items-center justify-center mb-6 shrink-0">
-                  <span className="text-[var(--blue-brand)] font-black text-lg">{step.step}</span>
-                </div>
-
-                <div className="flex-1">
-                  <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-widest mb-2">
-                    {step.duration}
-                  </p>
-                  <h3 className="text-[var(--text-primary)] font-bold text-base mb-3 leading-tight">
-                    {step.title}
-                  </h3>
-                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
+        {/* Detail cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-px bg-[var(--divider)]">
+          {steps.map((step) => (
+            <div
+              key={step.step}
+              className="bg-[var(--navy-deep)] hover:bg-[var(--navy-card)] p-6 transition-colors duration-300 group"
+            >
+              <div className="w-12 h-12 bg-[var(--navy-elevated)] border border-[var(--blue-brand)]/30 group-hover:border-[var(--blue-brand)] flex items-center justify-center mb-5 transition-colors duration-300">
+                <span className="text-[var(--blue-brand)] font-black text-base">{step.step}</span>
               </div>
-            ))}
-          </div>
+              <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-widest mb-2">
+                {step.duration}
+              </p>
+              <h3 className="text-[var(--text-primary)] font-bold text-sm mb-3 leading-tight">
+                {step.title}
+              </h3>
+              <p className="text-[var(--text-secondary)] text-xs leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
