@@ -48,11 +48,9 @@ export const projects: ProjectData[] = [
       "Освещение LED с датчиками движения",
       "Система видеонаблюдения 64 камеры",
     ],
-    image: "/images/projects/logistics-noginsk.jpg",
+    image: "/images/project-logistics.jpg",
     gallery: [
-      "/images/projects/logistics-noginsk.jpg",
-      "/images/projects/logistics-noginsk-2.jpg",
-      "/images/projects/logistics-noginsk-3.jpg",
+      "/images/project-logistics.jpg",
     ],
     services: ["Строительство", "Фундаменты и нулевой цикл", "Внутренние инженерные сети", "Внешние инженерные сети"],
   },
@@ -84,10 +82,9 @@ export const projects: ProjectData[] = [
       "Система «умного» управления зданием BMS",
       "Паркинг на 80 машиномест",
     ],
-    image: "/images/projects/office-moscow.jpg",
+    image: "/images/project-office.jpg",
     gallery: [
-      "/images/projects/office-moscow.jpg",
-      "/images/projects/office-moscow-2.jpg",
+      "/images/project-office.jpg",
     ],
     services: ["Проектирование", "Строительство", "Фасады и кровля", "Внутренние инженерные сети"],
   },
@@ -106,7 +103,7 @@ export const projects: ProjectData[] = [
     fullDescription:
       "Объект — цех мелкосерийного производства металлоконструкций. Здание 1978 года постройки. Износ несущих колонн — 45%, кровля в аварийном состоянии. Работы выполнялись в 4 технологических окна без полной остановки предприятия.",
     challenge:
-      "Нельзя было останавливать производство более чем на 72 часа. Аварийное состояние части конструкций требовало немедленных противоаварийных мер.",
+      "Нельзя было останавливать производство более чем на 72 часа. Аварийное состояние части конструкций требовало немедлен��ых противоаварийных мер.",
     solution:
       "Провели аварийное усиление колонн в первые две недели. Далее работали по разработанному ПОС с окнами по технологическому графику предприятия. Новая кровля монтировалась посекционно с временными заглушками.",
     result:
@@ -119,10 +116,9 @@ export const projects: ProjectData[] = [
       "Противоаварийные работы — 2 недели",
       "Работа в 4 технологических окна",
     ],
-    image: "/images/projects/factory-elektrostal.jpg",
+    image: "/images/project-industrial.jpg",
     gallery: [
-      "/images/projects/factory-elektrostal.jpg",
-      "/images/projects/factory-elektrostal-2.jpg",
+      "/images/project-industrial.jpg",
     ],
     services: ["Реконструкция и капремонт", "Фасады и кровля", "Внутренние инженерные сети"],
   },
@@ -154,9 +150,9 @@ export const projects: ProjectData[] = [
       "Ввод на 2 месяца раньше срока",
       "СКУД, видеонаблюдение, умный домофон",
     ],
-    image: "/images/projects/residential-balashikha.jpg",
+    image: "/images/project-residential.jpg",
     gallery: [
-      "/images/projects/residential-balashikha.jpg",
+      "/images/project-residential.jpg",
     ],
     services: ["Проектирование", "Строительство", "Внутренние инженерные сети", "Благоустройство территории"],
   },
@@ -188,9 +184,9 @@ export const projects: ProjectData[] = [
       "Система СКУД с биометрией",
       "Солнечные панели 800 кВт на кровле",
     ],
-    image: "/images/projects/cargo-domodedovo.jpg",
+    image: "/images/project-logistics.jpg",
     gallery: [
-      "/images/projects/cargo-domodedovo.jpg",
+      "/images/project-logistics.jpg",
     ],
     services: ["Проектирование", "Строительство", "Фундаменты и нулевой цикл", "Внутренние инженерные сети", "Внешние инженерные сети"],
   },
@@ -222,9 +218,9 @@ export const projects: ProjectData[] = [
       "Кабели 10 кВ в защитных трубах",
       "Согласования с 5 РСО",
     ],
-    image: "/images/projects/networks-serpukhov.jpg",
+    image: "/images/project-industrial.jpg",
     gallery: [
-      "/images/projects/networks-serpukhov.jpg",
+      "/images/project-industrial.jpg",
     ],
     services: ["Внешние инженерные сети"],
   },

@@ -6,6 +6,7 @@ import { ClientValueSection } from "@/components/client-value-section"
 import { ProcessSection } from "@/components/process-section"
 import { TrustSection } from "@/components/trust-section"
 import { CasesSection } from "@/components/cases-section"
+import { QuizSection } from "@/components/quiz-section"
 import { FormSection } from "@/components/form-section"
 import { ContactsSection } from "@/components/contacts-section"
 
@@ -19,6 +20,7 @@ export default function HomePage() {
       <ProcessSection />
       <TrustSection />
       <CasesSection />
+      <QuizSection />
       <FormSection />
       <ContactsSection />
     </SiteLayout>
