@@ -4,6 +4,7 @@ import { useState, ReactNode } from "react"
 import { SiteHeader } from "@/components/site-header"
 import { RequestModal } from "@/components/request-modal"
 import { MobileCtaStrip } from "@/components/mobile-cta-strip"
+import { TimedPopup } from "@/components/timed-popup"
 
 interface SiteLayoutProps {
   children: ReactNode
@@ -18,6 +19,7 @@ export function SiteLayout({ children }: SiteLayoutProps) {
       <main>{children}</main>
       <MobileCtaStrip onOpenModal={() => setModalOpen(true)} />
       <RequestModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      <TimedPopup />
     </>
   )
 }
