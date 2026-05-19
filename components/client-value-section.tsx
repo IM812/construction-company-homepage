@@ -1,12 +1,12 @@
 import { X, CheckCircle2 } from "lucide-react"
 
 const withoutUs = [
-  "Вы тратите время на поиск и проверку проектировщика, строителя, сетевика — отдельно",
-  "Ответственность размыта: каждый участник отвечает только за свой участок",
-  "Вы лично контролируете каждого подрядчика — или никто не контролирует никого",
-  "Один подрядчик сорвал сроки — весь проект стоит, бюджет растёт",
+  "Вы тратите время на поиск проектировщика, строителя, сетевика — каждого отдельно",
+  "Ответственность размыта: каждый отвечает только за свой участок",
+  "Вы лично координируете каждого — или никто не контролирует никого",
+  "Один сорвал сроки — весь проект стоит, бюджет растёт",
   "Дефект после сдачи: никто не признаёт вину, претензии ходят по кругу",
-  "Шесть договоров, шесть гарантийных условий, шесть точек риска",
+  "Шесть договоров, шесть гарантий, шесть точек риска",
 ]
 
 const withUs = [
@@ -19,70 +19,59 @@ const withUs = [
 ]
 
 const weHandle = [
-  { title: "Сбор исходных данных", desc: "Изыскания, технические условия от РСО, исходно-разрешительная документация — без вашего участия" },
-  { title: "Проектирование", desc: "Стадии П и РД, BIM-модель, экспертиза, разрешение на строительство — в срок по контракту" },
-  { title: "Согласования", desc: "РСО, Мосгоргеотрест, органы надзора — все переговоры ведём мы, вас не отвлекаем" },
-  { title: "Строительство", desc: "400+ рабочих и 80 единиц техники в штате. Никаких «пока ищем бригаду»" },
-  { title: "Инженерные сети", desc: "ОВиК, ВК, электроснабжение, пожарная защита — монтаж, пусконаладка, сдача" },
-  { title: "Ввод в эксплуатацию", desc: "Госкомиссия, разрешение на ввод, полный пакет документации. Объект готов к работе." },
+  { title: "Сбор исходных данных",  desc: "Изыскания, ТУ от РСО, ИРД — без вашего участия" },
+  { title: "Проектирование",        desc: "Стадии П и РД, BIM-модель, экспертиза, разрешение на строительство" },
+  { title: "Согласования",          desc: "РСО, Мосгоргеотрест, органы надзора — всё ведём мы" },
+  { title: "Строительство",         desc: "400+ рабочих и 80 единиц техники в штате. Без поиска бригад." },
+  { title: "Инженерные сети",       desc: "ОВиК, ВК, электроснабжение, пожарная защита — монтаж и пусконаладка" },
+  { title: "Ввод в эксплуатацию",   desc: "Госкомиссия, разрешение на ввод, полный пакет документации." },
 ]
 
 export function ClientValueSection() {
   return (
-    <section
-      id="client-value"
-      className="py-16 sm:py-28 bg-[var(--navy-elevated)]"
-      aria-labelledby="client-value-heading"
-    >
+    <section id="client-value" className="py-16 sm:py-28 bg-[#eef0f4]" aria-labelledby="client-value-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-10 sm:mb-16 border-b border-[var(--divider)] pb-8 sm:pb-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 border-b border-[#c8d0de] pb-10">
           <div>
-            <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-3 sm:mb-4">
+            <p className="text-[#1a5fd4] text-xs font-semibold uppercase tracking-[0.3em] mb-4">
               04 / Ценность генподряда
             </p>
-            <h2
-              id="client-value-heading"
-              className="text-[var(--text-primary)] font-black text-2xl sm:text-4xl lg:text-5xl leading-tight text-balance"
-            >
+            <h2 id="client-value-heading" className="text-[#0f1c3a] font-black text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance">
               Вы получаете объект.<br />Не головную боль.
             </h2>
           </div>
-          <p className="text-[var(--text-secondary)] text-base sm:text-lg leading-relaxed max-w-sm">
-            Вам не нужно координировать подрядчиков. Это единственное принципиальное отличие генподряда — и оно меняет всё.
+          <p className="text-[#5a6880] text-lg leading-relaxed max-w-sm">
+            Единственное принципиальное отличие генподряда — и оно меняет всё.
           </p>
         </div>
 
-        {/* Comparison table */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[var(--divider)] mb-12 sm:mb-20">
-          {/* Without us */}
-          <div className="bg-[var(--navy-elevated)] p-6 sm:p-8 lg:p-10">
-            <p className="text-[var(--text-secondary)] text-xs font-semibold uppercase tracking-[0.25em] mb-5 sm:mb-6 flex items-center gap-2">
-              <X size={14} className="text-red-400" aria-hidden="true" />
+        {/* Comparison */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[#c8d0de] mb-14">
+          <div className="bg-white p-8 lg:p-10">
+            <p className="text-[#5a6880] text-xs font-semibold uppercase tracking-[0.25em] mb-6 flex items-center gap-2">
+              <X size={13} className="text-red-400" aria-hidden="true" />
               Без генподрядчика
             </p>
-            <ul className="space-y-3 sm:space-y-4">
+            <ul className="space-y-4">
               {withoutUs.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <X size={14} className="text-red-400/70 mt-0.5 shrink-0" aria-hidden="true" />
-                  <span className="text-[var(--text-secondary)] text-sm leading-relaxed">{item}</span>
+                  <X size={13} className="text-red-400/70 mt-0.5 shrink-0" aria-hidden="true" />
+                  <span className="text-[#5a6880] text-sm leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
-
-          {/* With us */}
-          <div className="bg-[var(--navy-card)] p-6 sm:p-8 lg:p-10 border border-[var(--blue-brand)]/20">
-            <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.25em] mb-5 sm:mb-6 flex items-center gap-2">
-              <CheckCircle2 size={14} aria-hidden="true" />
+          <div className="bg-white p-8 lg:p-10 border-l-4 border-[#1a5fd4]">
+            <p className="text-[#1a5fd4] text-xs font-semibold uppercase tracking-[0.25em] mb-6 flex items-center gap-2">
+              <CheckCircle2 size={13} aria-hidden="true" />
               С генподрядчиком СтройГенПодряд
             </p>
-            <ul className="space-y-3 sm:space-y-4">
+            <ul className="space-y-4">
               {withUs.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <CheckCircle2 size={14} className="text-[var(--blue-brand)] mt-0.5 shrink-0" aria-hidden="true" />
-                  <span className="text-[var(--text-primary)] text-sm leading-relaxed">{item}</span>
+                  <CheckCircle2 size={13} className="text-[#1a5fd4] mt-0.5 shrink-0" aria-hidden="true" />
+                  <span className="text-[#0f1c3a] text-sm leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>
@@ -90,33 +79,22 @@ export function ClientValueSection() {
         </div>
 
         {/* What we handle */}
-        <div>
-          <h3 className="text-[var(--text-primary)] font-black text-xl sm:text-2xl lg:text-3xl mb-6 sm:mb-10 border-b border-[var(--divider)] pb-4 sm:pb-6">
-            Что мы берём на себя
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--divider)]">
-            {weHandle.map((item, i) => (
-              <div
-                key={item.title}
-                className="bg-[var(--navy-elevated)] hover:bg-[var(--navy-card)] p-5 sm:p-7 transition-colors duration-300 group"
-              >
-                <div className="flex items-center gap-3 mb-2 sm:mb-3">
-                  <span
-                    className="text-[var(--blue-brand)] font-black text-xs w-7 h-7 border border-[var(--blue-brand)]/40 flex items-center justify-center shrink-0"
-                    aria-hidden="true"
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h4 className="text-[var(--text-primary)] font-bold text-sm sm:text-base">{item.title}</h4>
-                </div>
-                <p className="text-[var(--text-secondary)] text-xs sm:text-sm leading-relaxed pl-10">
-                  {item.desc}
-                </p>
+        <h3 className="text-[#0f1c3a] font-black text-2xl sm:text-3xl mb-8 border-b border-[#c8d0de] pb-6">
+          Что мы берём на себя
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#c8d0de]">
+          {weHandle.map((item, i) => (
+            <div key={item.title} className="bg-white hover:bg-[#f7f8fa] p-6 sm:p-8 transition-colors duration-200 group">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-[#1a5fd4] font-black text-xs w-7 h-7 bg-[#e8f0fd] flex items-center justify-center shrink-0" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h4 className="text-[#0f1c3a] font-bold text-sm sm:text-base">{item.title}</h4>
               </div>
-            ))}
-          </div>
+              <p className="text-[#5a6880] text-xs sm:text-sm leading-relaxed pl-10">{item.desc}</p>
+            </div>
+          ))}
         </div>
-
       </div>
     </section>
   )

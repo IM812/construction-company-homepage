@@ -1,12 +1,12 @@
-import { Award, FileCheck, Users, ShieldCheck } from "lucide-react"
+import { Users, ShieldCheck, FileCheck } from "lucide-react"
 
 const docs = [
-  { label: "СРО НОСТРОЙ", sub: "Свидетельство № 0129.01" },
-  { label: "СРО НОПРИЗ", sub: "Допуск к проектным работам" },
-  { label: "Лицензия ФСБ", sub: "Работа на режимных объектах" },
-  { label: "Страхование СМР", sub: "Покрытие до 500 млн ₽" },
-  { label: "ГОСТ Р ISO 9001", sub: "Система менеджмента качества" },
-  { label: "Лицензия МЧС", sub: "Монтаж систем пожарной защиты" },
+  { label: "СРО НОСТРОЙ",      sub: "Свидетельство № 0129.01" },
+  { label: "СРО НОПРИЗ",       sub: "Допуск к проектным работам" },
+  { label: "Лицензия ФСБ",     sub: "Работа на режимных объектах" },
+  { label: "Страхование СМР",  sub: "Покрытие до 500 млн ₽" },
+  { label: "ГОСТ Р ISO 9001",  sub: "Система менеджмента качества" },
+  { label: "Лицензия МЧС",     sub: "Монтаж систем пожарной защиты" },
 ]
 
 const leaders = [
@@ -24,54 +24,34 @@ const leaders = [
 
 export function TrustSection() {
   return (
-    <section
-      id="trust"
-      className="py-28 bg-[var(--navy-card)]"
-      aria-labelledby="trust-heading"
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="trust" className="py-20 sm:py-28 bg-[#f7f8fa]" aria-labelledby="trust-heading">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="mb-16 border-b border-[var(--divider)] pb-12">
-          <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-4">
+        <div className="mb-12 border-b border-[#e2e6ef] pb-10">
+          <p className="text-[#1a5fd4] text-xs font-semibold uppercase tracking-[0.3em] mb-4">
             05 / Доверие
           </p>
-          <h2
-            id="trust-heading"
-            className="text-[var(--text-primary)] font-black text-4xl lg:text-5xl leading-tight text-balance"
-          >
+          <h2 id="trust-heading" className="text-[#0f1c3a] font-black text-3xl sm:text-4xl lg:text-5xl leading-tight">
             Документы и руководство
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 
           {/* Documents */}
           <div>
-            <div className="flex items-center gap-3 mb-8">
-              <FileCheck size={20} className="text-[var(--blue-brand)]" aria-hidden="true" />
-              <h3 className="text-[var(--text-primary)] font-bold text-xl uppercase tracking-wide">
-                Допуски и лицензии
-              </h3>
+            <div className="flex items-center gap-3 mb-6">
+              <FileCheck size={18} className="text-[#1a5fd4]" aria-hidden="true" />
+              <h3 className="text-[#0f1c3a] font-bold text-lg uppercase tracking-wide">Допуски и лицензии</h3>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[var(--divider)]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#e2e6ef]">
               {docs.map((doc) => (
-                <div
-                  key={doc.label}
-                  className="bg-[var(--navy-card)] hover:bg-[var(--navy-elevated)] p-5 transition-colors duration-200 group"
-                >
+                <div key={doc.label} className="bg-white hover:bg-[#f7f8fa] p-5 transition-colors duration-200">
                   <div className="flex items-start gap-3">
-                    <ShieldCheck
-                      size={16}
-                      className="text-[var(--blue-brand)] mt-0.5 shrink-0"
-                      aria-hidden="true"
-                    />
+                    <ShieldCheck size={15} className="text-[#1a5fd4] mt-0.5 shrink-0" aria-hidden="true" />
                     <div>
-                      <p className="text-[var(--text-primary)] font-bold text-sm">
-                        {doc.label}
-                      </p>
-                      <p className="text-[var(--text-secondary)] text-xs mt-0.5 leading-relaxed">
-                        {doc.sub}
-                      </p>
+                      <p className="text-[#0f1c3a] font-bold text-sm">{doc.label}</p>
+                      <p className="text-[#5a6880] text-xs mt-0.5">{doc.sub}</p>
                     </div>
                   </div>
                 </div>
@@ -81,34 +61,20 @@ export function TrustSection() {
 
           {/* Leadership */}
           <div>
-            <div className="flex items-center gap-3 mb-8">
-              <Users size={20} className="text-[var(--blue-brand)]" aria-hidden="true" />
-              <h3 className="text-[var(--text-primary)] font-bold text-xl uppercase tracking-wide">
-                Руководство
-              </h3>
+            <div className="flex items-center gap-3 mb-6">
+              <Users size={18} className="text-[#1a5fd4]" aria-hidden="true" />
+              <h3 className="text-[#0f1c3a] font-bold text-lg uppercase tracking-wide">Руководство</h3>
             </div>
-            <div className="flex flex-col gap-px bg-[var(--divider)]">
+            <div className="flex flex-col gap-px bg-[#e2e6ef]">
               {leaders.map((person) => (
-                <div
-                  key={person.name}
-                  className="bg-[var(--navy-card)] hover:bg-[var(--navy-elevated)] p-6 transition-colors duration-200 flex items-start gap-5"
-                >
-                  <div
-                    className="w-12 h-12 bg-[var(--navy-elevated)] border border-[var(--divider)] flex items-center justify-center shrink-0 text-[var(--blue-brand)] font-black text-lg"
-                    aria-hidden="true"
-                  >
+                <div key={person.name} className="bg-white hover:bg-[#f7f8fa] p-6 transition-colors duration-200 flex items-start gap-5">
+                  <div className="w-12 h-12 bg-[#e8f0fd] flex items-center justify-center shrink-0 text-[#1a5fd4] font-black text-lg">
                     {person.name.charAt(0)}
                   </div>
                   <div>
-                    <p className="text-[var(--text-primary)] font-bold text-base">
-                      {person.name}
-                    </p>
-                    <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-widest mb-1">
-                      {person.role}
-                    </p>
-                    <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
-                      {person.exp}
-                    </p>
+                    <p className="text-[#0f1c3a] font-bold text-base">{person.name}</p>
+                    <p className="text-[#1a5fd4] text-xs font-semibold uppercase tracking-widest mb-2">{person.role}</p>
+                    <p className="text-[#5a6880] text-sm leading-relaxed">{person.exp}</p>
                   </div>
                 </div>
               ))}
