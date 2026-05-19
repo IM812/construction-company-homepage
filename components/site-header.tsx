@@ -9,10 +9,12 @@ interface SiteHeaderProps {
 }
 
 const NAV_LINKS = [
-  { label: "Главная",        href: "/" },
-  { label: "Услуги",         href: "/services" },
-  { label: "О компании",     href: "/about" },
-  { label: "Контакты",       href: "/contacts" },
+  { label: "Главная",    href: "/" },
+  { label: "Услуги",     href: "/services" },
+  { label: "Проекты",    href: "/projects" },
+  { label: "Статьи",     href: "/articles" },
+  { label: "О компании", href: "/about" },
+  { label: "Контакты",   href: "/contacts" },
 ]
 
 const PHONES = [
@@ -86,13 +88,13 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
             {/* ── CENTER: Navigation ── */}
             <nav
               aria-label="Основная навигация"
-              className="hidden lg:flex items-center justify-center flex-1 gap-1"
+              className="hidden lg:flex items-center justify-center flex-1 gap-0.5"
             >
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="relative px-3 py-2 text-[13px] font-semibold uppercase tracking-[0.08em] transition-colors duration-150 group/nav"
+                  className="relative px-2.5 py-2 text-[12px] font-semibold uppercase tracking-[0.08em] transition-colors duration-150 group/nav"
                   style={{ color: "var(--text-secondary)" }}
                   onMouseEnter={e => (e.currentTarget.style.color = "var(--text-primary)")}
                   onMouseLeave={e => (e.currentTarget.style.color = "var(--text-secondary)")}
@@ -100,7 +102,7 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
                   {link.label}
                   {/* Underline accent */}
                   <span
-                    className="absolute bottom-0 left-3 right-3 h-px scale-x-0 group-hover/nav:scale-x-100 transition-transform duration-200 origin-left"
+                    className="absolute bottom-0 left-2.5 right-2.5 h-px scale-x-0 group-hover/nav:scale-x-100 transition-transform duration-200 origin-left"
                     style={{ background: "var(--blue-brand)" }}
                   />
                 </Link>
@@ -123,7 +125,7 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
                     onMouseEnter={e => (e.currentTarget.style.color = "var(--blue-brand)")}
                     onMouseLeave={e => (e.currentTarget.style.color = "var(--text-primary)")}
                   >
-                    <span className="flex items-center gap-1.5 font-bold text-[14px] leading-none tracking-tight">
+                    <span className="flex items-center gap-1.5 font-bold text-[13px] leading-none tracking-tight">
                       <Phone
                         size={12}
                         className="shrink-0"
@@ -145,7 +147,7 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
               {/* CTA Button */}
               <button
                 onClick={onOpenModal}
-                className="flex items-center h-10 px-5 font-bold text-[13px] uppercase tracking-[0.08em] transition-colors duration-200 cursor-pointer whitespace-nowrap"
+                className="flex items-center h-10 px-5 font-bold text-[12px] uppercase tracking-[0.08em] transition-colors duration-200 cursor-pointer whitespace-nowrap"
                 style={{
                   background: "var(--blue-brand)",
                   color: "var(--text-primary)",
@@ -153,7 +155,7 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
                 onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = "var(--blue-hover)")}
                 onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = "var(--blue-brand)")}
               >
-                Оставить заявку
+                Заявка
               </button>
             </div>
 
