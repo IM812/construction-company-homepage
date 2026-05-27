@@ -12,32 +12,32 @@ export function ServicesCatalogue() {
 
   return (
     <>
-    <section className="py-28 bg-[var(--navy-deep)]" aria-labelledby="services-heading">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="py-16 sm:py-28 bg-[var(--navy-deep)]" aria-labelledby="services-heading">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Intro */}
-        <div className="mb-20 border-b border-[var(--divider)] pb-16">
+        <div className="mb-12 sm:mb-20 border-b border-[var(--divider)] pb-10 sm:pb-16">
           <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-4">
             Каталог услуг
           </p>
           <h1
             id="services-heading"
-            className="text-[var(--text-primary)] font-black text-4xl lg:text-6xl leading-tight text-balance mb-8"
+            className="text-[var(--text-primary)] font-black text-3xl sm:text-4xl lg:text-6xl leading-tight text-balance mb-6 sm:mb-8"
           >
-            Генподряд под ключ —<br />от проектирования до сдачи объекта
+            Генподряд под ключ — от проектирования до сдачи объекта
           </h1>
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-20">
             <div>
-              <p className="text-[var(--text-primary)] text-xl font-semibold leading-relaxed mb-4">
+              <p className="text-[var(--text-primary)] text-base sm:text-xl font-semibold leading-relaxed mb-3">
                 Берём на себя весь цикл работ и координацию всех подрядчиков
               </p>
-              <p className="text-[var(--text-secondary)] text-base leading-relaxed">
+              <p className="hidden sm:block text-[var(--text-secondary)] text-base leading-relaxed">
                 Мы — генеральный подрядчик с 15-летним опытом. Выполняем проектирование, строительство, 
                 инженерные сети, реконструкцию в рамках одного договора. Один подрядчик — единая ответственность 
                 за весь проект от начала до ввода в эксплуатацию.
               </p>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {[
                 "Полный цикл — проектирование, строительство, инженерные сети",
                 "Фиксированная цена в договоре без скрытых доплат",
@@ -46,7 +46,7 @@ export function ServicesCatalogue() {
                 "Гарантия на СМР — 5 лет, гарантия сроков — в договоре",
               ].map((item) => (
                 <div key={item} className="flex gap-3">
-                  <CheckCircle2 size={20} className="text-[var(--blue-brand)] shrink-0 mt-0.5" aria-hidden="true" />
+                  <CheckCircle2 size={16} className="text-[var(--blue-brand)] shrink-0 mt-0.5" aria-hidden="true" />
                   <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{item}</p>
                 </div>
               ))}
@@ -55,13 +55,13 @@ export function ServicesCatalogue() {
         </div>
 
         {/* What client gets + What we handle */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[var(--divider)] mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[var(--divider)] mb-12 sm:mb-20">
           {/* What client gets */}
-          <div className="bg-[var(--navy-card)] p-10 border border-[var(--blue-brand)]/20">
-            <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-6">
+          <div className="bg-[var(--navy-card)] p-6 sm:p-10 border border-[var(--blue-brand)]/20">
+            <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-5">
               Что получает клиент
             </p>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               {[
                 "Один подрядчик вместо четырёх — проектировщик, строитель, сетевик, надзор",
                 "Контроль всех этапов через единую точку ответственности",
@@ -77,11 +77,11 @@ export function ServicesCatalogue() {
             </ul>
           </div>
           {/* What we handle */}
-          <div className="bg-[var(--navy-deep)] p-10">
-            <p className="text-[var(--text-secondary)] text-xs font-semibold uppercase tracking-[0.3em] mb-6">
+          <div className="bg-[var(--navy-deep)] p-6 sm:p-10">
+            <p className="text-[var(--text-secondary)] text-xs font-semibold uppercase tracking-[0.3em] mb-5">
               Что мы берём на себя
             </p>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               {[
                 "Сбор исходных данных и технических условий от РСО",
                 "Проектирование стадий П и РД, прохождение экспертизы",
@@ -99,11 +99,11 @@ export function ServicesCatalogue() {
         </div>
 
         {/* Process steps */}
-        <div className="mb-20">
-          <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-8">
+        <div className="mb-12 sm:mb-20">
+          <p className="text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-[0.3em] mb-6">
             Этапы работы
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-5 gap-px bg-[var(--divider)]">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-px bg-[var(--divider)]">
             {[
               { num: "01", label: "Заявка", desc: "Обсуждение объекта, выезд на площадку" },
               { num: "02", label: "Расчёт", desc: "Смета с разбивкой по видам работ" },
@@ -111,9 +111,9 @@ export function ServicesCatalogue() {
               { num: "04", label: "Строительство", desc: "СМР + инженерные сети по графику" },
               { num: "05", label: "Сдача", desc: "Ввод в эксплуатацию, документация" },
             ].map((step, i, arr) => (
-              <div key={step.num} className="bg-[var(--navy-card)] hover:bg-[var(--navy-elevated)] p-7 transition-colors duration-300 relative">
-                <span className="text-[var(--blue-brand)]/20 font-black text-5xl leading-none block mb-4" aria-hidden="true">{step.num}</span>
-                <p className="text-[var(--text-primary)] font-bold text-base mb-2">{step.label}</p>
+              <div key={step.num} className="bg-[var(--navy-card)] hover:bg-[var(--navy-elevated)] p-5 sm:p-7 transition-colors duration-300 relative">
+                <span className="text-[var(--blue-brand)]/20 font-black text-4xl sm:text-5xl leading-none block mb-3" aria-hidden="true">{step.num}</span>
+                <p className="text-[var(--text-primary)] font-bold text-sm sm:text-base mb-1.5">{step.label}</p>
                 <p className="text-[var(--text-secondary)] text-xs leading-relaxed">{step.desc}</p>
                 {i < arr.length - 1 && (
                   <ArrowRight size={14} className="text-[var(--blue-brand)]/40 absolute -right-2 top-1/2 -translate-y-1/2 hidden sm:block z-10" aria-hidden="true" />
@@ -132,24 +132,24 @@ export function ServicesCatalogue() {
                 key={service.slug}
                 className="bg-[var(--navy-card)] border border-[var(--divider)] hover:border-[var(--blue-brand)]/50 transition-colors duration-300 group"
               >
-                <div className="p-8 lg:p-12">
-                  <div className="flex flex-col lg:flex-row lg:items-start gap-8 lg:gap-12">
+                <div className="p-5 sm:p-8 lg:p-12">
+                  <div className="flex flex-col lg:flex-row lg:items-start gap-5 sm:gap-8 lg:gap-12">
                     
                     {/* Left: Icon + Number + Title */}
                     <div className="lg:w-80 shrink-0">
-                      <div className="flex items-center gap-4 mb-5">
-                        <div className="w-14 h-14 bg-[var(--navy-elevated)] group-hover:bg-[var(--blue-brand)] flex items-center justify-center transition-colors duration-300 border border-[var(--divider)] group-hover:border-[var(--blue-brand)]">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-11 h-11 sm:w-14 sm:h-14 bg-[var(--navy-elevated)] group-hover:bg-[var(--blue-brand)] flex items-center justify-center transition-colors duration-300 border border-[var(--divider)] group-hover:border-[var(--blue-brand)]">
                           <Icon 
-                            size={24} 
+                            size={20} 
                             className="text-[var(--blue-brand)] group-hover:text-white transition-colors duration-300" 
                             aria-hidden="true" 
                           />
                         </div>
-                        <span className="text-[var(--blue-brand)]/30 font-black text-4xl leading-none">
-                          {String(index + 1).padStart(2, '0')}
+                        <span className="text-[var(--blue-brand)]/30 font-black text-3xl sm:text-4xl leading-none">
+                          {String(index + 1).padStart(2, "0")}
                         </span>
                       </div>
-                      <h2 className="text-[var(--text-primary)] font-black text-2xl lg:text-3xl leading-tight mb-3">
+                      <h2 className="text-[var(--text-primary)] font-black text-xl sm:text-2xl lg:text-3xl leading-tight mb-3">
                         {service.title}
                       </h2>
                       <span className="inline-block text-[var(--blue-brand)] text-xs font-semibold uppercase tracking-widest border border-[var(--blue-brand)]/30 px-3 py-1.5">
@@ -159,11 +159,11 @@ export function ServicesCatalogue() {
 
                     {/* Middle: Description + Features */}
                     <div className="flex-1">
-                      <p className="text-[var(--text-secondary)] text-base leading-relaxed mb-8">
+                      <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed mb-5 sm:mb-8">
                         {service.shortDescription}
                       </p>
                       
-                      <div className="grid sm:grid-cols-2 gap-6">
+                      <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                         {service.features.map((feature) => (
                           <div key={feature.title}>
                             <h3 className="text-[var(--text-primary)] font-bold text-sm mb-1.5 flex items-center gap-2">
@@ -182,7 +182,7 @@ export function ServicesCatalogue() {
                     <div className="lg:w-48 shrink-0 flex lg:flex-col gap-3">
                       <button
                         onClick={() => setActiveService(service)}
-                        className="flex-1 lg:flex-none bg-[var(--blue-brand)] hover:bg-[var(--blue-hover)] text-white font-bold text-sm px-6 py-4 uppercase tracking-wider transition-colors duration-200 flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer"
+                        className="flex-1 lg:flex-none bg-[var(--blue-brand)] hover:bg-[var(--blue-hover)] text-white font-bold text-sm px-5 py-3.5 sm:px-6 sm:py-4 uppercase tracking-wider transition-colors duration-200 flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer"
                       >
                         Подробнее
                         <ArrowRight size={16} aria-hidden="true" />
@@ -196,14 +196,14 @@ export function ServicesCatalogue() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-16 pt-12 border-t border-[var(--divider)] text-center">
-          <p className="text-[var(--text-secondary)] text-base leading-relaxed max-w-2xl mx-auto mb-8">
+        <div className="mt-12 sm:mt-16 pt-10 sm:pt-12 border-t border-[var(--divider)] text-center">
+          <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-6 sm:mb-8">
             Не нашли нужную услугу? Напишите нам — мы решаем нестандартные задачи и готовы обсудить 
             индивидуальные условия для вашего проекта.
           </p>
           <Link
             href="/contacts"
-            className="inline-flex items-center gap-3 border border-[var(--divider)] hover:border-[var(--blue-brand)] text-[var(--text-primary)] font-bold text-sm px-8 py-4 uppercase tracking-wider transition-colors duration-200"
+            className="inline-flex items-center gap-3 border border-[var(--divider)] hover:border-[var(--blue-brand)] text-[var(--text-primary)] font-bold text-sm px-6 sm:px-8 py-4 uppercase tracking-wider transition-colors duration-200"
           >
             Связаться с нами
             <ArrowRight size={16} aria-hidden="true" />
