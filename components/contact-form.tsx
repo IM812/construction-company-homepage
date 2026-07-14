@@ -27,10 +27,22 @@ export function ContactForm({ compact = false, onSuccess, dark = false }: Contac
       return
     }
     setLoading(true)
-    await new Promise((res) => setTimeout(res, 1500))
-    setLoading(false)
-    setSubmitted(true)
-    onSuccess?.()
+    setError("")
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, source: "contact_form" }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error ?? "Ошибка отправки")
+      setSubmitted(true)
+      onSuccess?.()
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Ошибка отправки. Попробуйте ещё раз.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (submitted) {
@@ -105,7 +117,7 @@ export function ContactForm({ compact = false, onSuccess, dark = false }: Contac
 
       <p className="text-[#8d98aa] text-xs mt-3 text-center leading-relaxed">
         Нажимая кнопку, вы соглашаетесь с{" "}
-        <a href="#" className="underline hover:text-[#0f1c3a] transition-colors">политикой обработки персональных данных</a>
+        <a href="/privacy" className="underline hover:text-[#0f1c3a] transition-colors">политикой обработки персональных данных</a>
       </p>
     </form>
   )

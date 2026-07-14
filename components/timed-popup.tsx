@@ -51,10 +51,22 @@ export function TimedPopup() {
       return
     }
     setLoading(true)
-    await new Promise(res => setTimeout(res, 1400))
-    setLoading(false)
-    setSubmitted(true)
-    setTimeout(() => setVisible(false), 3000)
+    setError("")
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, source: "popup" }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error ?? "Ошибка отправки")
+      setSubmitted(true)
+      setTimeout(() => setVisible(false), 3000)
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Ошибка отправки. Попробуйте ещё раз.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (!visible) return null
@@ -181,7 +193,7 @@ export function TimedPopup() {
 
                 <p className="text-[#8d98aa] text-xs mt-3 text-center leading-relaxed">
                   Нажимая кнопку, вы соглашаетесь с{" "}
-                  <a href="#" className="underline hover:text-[#0f1c3a] transition-colors">политикой обработки персональных данных</a>
+                  <a href="/privacy" className="underline hover:text-[#0f1c3a] transition-colors">политикой обработки персональных данных</a>
                 </p>
               </form>
             </>

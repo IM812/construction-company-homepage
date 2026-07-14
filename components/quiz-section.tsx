@@ -66,9 +66,21 @@ export function QuizSection() {
     e.preventDefault()
     if (!form.name || !form.phone) { setError("Пожалуйста, укажите имя и телефон."); return }
     setLoading(true)
-    await new Promise((res) => setTimeout(res, 1400))
-    setLoading(false)
-    setSubmitted(true)
+    setError("")
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, source: "quiz", answers }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error ?? "Ошибка отправки")
+      setSubmitted(true)
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Ошибка отправки. Попробуйте ещё раз.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   const inputCls = "w-full bg-[#f7f8fa] border border-[#e2e6ef] focus:border-[#1a5fd4] focus:bg-white text-[#0f1c3a] placeholder:text-[#8d98aa] px-5 py-4 text-base outline-none transition-colors duration-200"

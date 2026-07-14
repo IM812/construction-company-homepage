@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { CookieBanner } from '@/components/cookie-banner'
 import './globals.css'
 
 const inter = Inter({
@@ -9,11 +10,43 @@ const inter = Inter({
   weight: ['400', '500', '600', '700', '800', '900'],
 })
 
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://xn--e1afmapc.xn--p1ai"
+
 export const metadata: Metadata = {
-  title: 'СтройГенПодряд — Генеральный подрядчик в Москве',
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "СтройГенПодряд — Генеральный подрядчик в Москве",
+    template: "%s — СтройГенПодряд",
+  },
   description:
-    'Генподряд под ключ: от проектирования до сдачи объекта. Промышленные, коммерческие и жилые объекты. Работаем по всей России.',
-  keywords: 'генподряд, генеральный подрядчик, строительство, Москва, под ключ',
+    "Генподряд под ключ: проектирование, строительство, инженерные сети, ввод в эксплуатацию. 230+ объектов. Фиксированная цена в договоре.",
+  keywords: [
+    "генподряд", "генеральный подрядчик", "строительство Москва",
+    "под ключ", "промышленное строительство", "коммерческое строительство",
+    "проектирование", "реконструкция", "инженерные сети",
+  ],
+  authors: [{ name: "СтройГенПодряд" }],
+  creator: "СтройГенПодряд",
+  publisher: "СтройГенПодряд",
+  openGraph: {
+    type: "website",
+    locale: "ru_RU",
+    url: BASE_URL,
+    siteName: "СтройГенПодряд",
+    title: "СтройГенПодряд — Генеральный подрядчик в Москве",
+    description:
+      "Генподряд под ключ: проектирование, строительство, инженерные сети, ввод в эксплуатацию. 230+ объектов. Фиксированная цена в договоре.",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "СтройГенПодряд — Генеральный подрядчик" }],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+  verification: {
+    yandex: process.env.YANDEX_VERIFICATION ?? "",
+    google: process.env.GOOGLE_VERIFICATION ?? "",
+  },
 }
 
 export default function RootLayout({
@@ -25,6 +58,7 @@ export default function RootLayout({
     <html lang="ru" className={`${inter.variable} bg-white`} data-scroll-behavior="smooth">
       <body className="font-sans antialiased bg-white text-[#0f1c3a]">
         {children}
+        <CookieBanner />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
