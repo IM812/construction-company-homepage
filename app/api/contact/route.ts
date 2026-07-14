@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server"
 import { Resend } from "resend"
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const RESEND_API_KEY = "re_cf8Xjqk9_FZZbb31ijGmGoPfNbKSG9tS6"
+const CONTACT_EMAIL = "info@stroygenpodriad.ru"
+
+const resend = new Resend(RESEND_API_KEY)
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,13 +15,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Обязательные поля: имя и телефон." }, { status: 400 })
     }
 
-    const toEmail = process.env.CONTACT_EMAIL
-
-    if (!process.env.RESEND_API_KEY || !toEmail) {
-      // Dev mode — log and return success so forms can be tested locally
-      console.log("[contact] Resend env vars not set — simulating success", body)
-      return NextResponse.json({ ok: true })
-    }
+    const toEmail = CONTACT_EMAIL
 
     const sourceLabel: Record<string, string> = {
       contact_form: "Форма контактов",

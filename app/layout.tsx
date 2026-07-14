@@ -10,7 +10,7 @@ const inter = Inter({
   weight: ['400', '500', '600', '700', '800', '900'],
 })
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://xn--e1afmapc.xn--p1ai"
+const BASE_URL = "https://stroyfintrust.ru"
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -43,10 +43,7 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
-  verification: {
-    yandex: process.env.YANDEX_VERIFICATION ?? "",
-    google: process.env.GOOGLE_VERIFICATION ?? "",
-  },
+
 }
 
 export default function RootLayout({
