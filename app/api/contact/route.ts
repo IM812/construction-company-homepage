@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
-import nodemailer from "nodemailer"
+import { Resend } from "resend"
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(req: NextRequest) {
   try {
@@ -11,23 +13,12 @@ export async function POST(req: NextRequest) {
     }
 
     const toEmail = process.env.CONTACT_EMAIL
-    const smtpHost = process.env.SMTP_HOST
-    const smtpPort = Number(process.env.SMTP_PORT ?? 465)
-    const smtpUser = process.env.SMTP_USER
-    const smtpPass = process.env.SMTP_PASS
 
-    if (!toEmail || !smtpHost || !smtpUser || !smtpPass) {
-      // In development — just log and return success so forms can be tested
-      console.log("[contact] Email env vars not set — simulating success", body)
+    if (!process.env.RESEND_API_KEY || !toEmail) {
+      // Dev mode — log and return success so forms can be tested locally
+      console.log("[contact] Resend env vars not set — simulating success", body)
       return NextResponse.json({ ok: true })
     }
-
-    const transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: smtpPort,
-      secure: smtpPort === 465,
-      auth: { user: smtpUser, pass: smtpPass },
-    })
 
     const sourceLabel: Record<string, string> = {
       contact_form: "Форма контактов",
@@ -63,10 +54,10 @@ export async function POST(req: NextRequest) {
 
     const quizHtml = answers
       ? `
-        <tr><td colspan="2" style="padding:12px 20px 4px;font-size:11px;font-weight:700;color:#8d98aa;text-transform:uppercase;letter-spacing:1px;background:#f7f8fa;">Ответы квиза</td></tr>
-        ${answers.type ? `<tr><td style="padding:8px 20px;font-size:13px;color:#5a6880;width:160px;">Тип объекта</td><td style="padding:8px 20px;font-size:14px;color:#0f1c3a;font-weight:600;">${quizAnswersMap[answers.type] ?? answers.type}</td></tr>` : ""}
-        ${answers.area ? `<tr><td style="padding:8px 20px;font-size:13px;color:#5a6880;">Площадь</td><td style="padding:8px 20px;font-size:14px;color:#0f1c3a;font-weight:600;">${quizAnswersMap[answers.area] ?? answers.area}</td></tr>` : ""}
-        ${answers.works ? `<tr><td style="padding:8px 20px;font-size:13px;color:#5a6880;">Работы</td><td style="padding:8px 20px;font-size:14px;color:#0f1c3a;font-weight:600;">${quizAnswersMap[answers.works] ?? answers.works}</td></tr>` : ""}
+        <tr><td colspan="2" style="padding:12px 24px 4px;font-size:11px;font-weight:700;color:#8d98aa;text-transform:uppercase;letter-spacing:1px;background:#f7f8fa;">Ответы квиза</td></tr>
+        ${answers.type ? `<tr><td style="padding:8px 24px;font-size:13px;color:#5a6880;width:160px;">Тип объекта</td><td style="padding:8px 24px;font-size:14px;color:#0f1c3a;font-weight:600;">${quizAnswersMap[answers.type] ?? answers.type}</td></tr>` : ""}
+        ${answers.area ? `<tr><td style="padding:8px 24px;font-size:13px;color:#5a6880;">Площадь</td><td style="padding:8px 24px;font-size:14px;color:#0f1c3a;font-weight:600;">${quizAnswersMap[answers.area] ?? answers.area}</td></tr>` : ""}
+        ${answers.works ? `<tr><td style="padding:8px 24px;font-size:13px;color:#5a6880;">Работы</td><td style="padding:8px 24px;font-size:14px;color:#0f1c3a;font-weight:600;">${quizAnswersMap[answers.works] ?? answers.works}</td></tr>` : ""}
       `
       : ""
 
@@ -77,29 +68,26 @@ export async function POST(req: NextRequest) {
 <body style="margin:0;padding:0;background:#f0f2f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f2f5;padding:32px 16px;">
     <tr><td align="center">
-      <table width="100%" cellpadding="0" cellspacing="0" style="max-width:580px;background:#ffffff;border-radius:4px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+      <table width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:4px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
 
-        <!-- Header -->
         <tr><td style="background:#1a5fd4;padding:20px 24px;">
           <p style="margin:0;color:#ffffff;font-size:18px;font-weight:800;letter-spacing:-0.3px;">СтройГенПодряд</p>
           <p style="margin:4px 0 0;color:rgba(255,255,255,0.7);font-size:13px;">Новая заявка с сайта</p>
         </td></tr>
 
-        <!-- Source badge -->
         <tr><td style="background:#edf3fc;padding:10px 24px;border-bottom:1px solid #dce7fa;">
           <p style="margin:0;font-size:12px;color:#1a5fd4;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;">
             Источник: ${sourceLabel[source] ?? source ?? "Сайт"}
           </p>
         </td></tr>
 
-        <!-- Fields -->
         <tr><td style="padding:0;">
           <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
             <tr><td colspan="2" style="padding:16px 24px 4px;font-size:11px;font-weight:700;color:#8d98aa;text-transform:uppercase;letter-spacing:1px;background:#f7f8fa;">Контакты</td></tr>
             <tr><td style="padding:10px 24px;font-size:13px;color:#5a6880;width:140px;">Имя</td><td style="padding:10px 24px;font-size:15px;color:#0f1c3a;font-weight:700;">${name}</td></tr>
             ${company ? `<tr><td style="padding:10px 24px;font-size:13px;color:#5a6880;">Компания</td><td style="padding:10px 24px;font-size:14px;color:#0f1c3a;font-weight:600;">${company}</td></tr>` : ""}
             <tr><td style="padding:10px 24px;font-size:13px;color:#5a6880;">Телефон</td><td style="padding:10px 24px;font-size:15px;color:#1a5fd4;font-weight:700;"><a href="tel:${phone}" style="color:#1a5fd4;text-decoration:none;">${phone}</a></td></tr>
-            ${email ? `<tr><td style="padding:10px 24px;font-size:13px;color:#5a6880;">Email</td><td style="padding:10px 24px;font-size:14px;color:#0f1c3a;"><a href="mailto:${email}" style="color:#1a5fd4;text-decoration:none;">${email}</a></td></tr>` : ""}
+            ${email ? `<tr><td style="padding:10px 24px;font-size:13px;color:#5a6880;">Email</td><td style="padding:10px 24px;font-size:14px;"><a href="mailto:${email}" style="color:#1a5fd4;text-decoration:none;">${email}</a></td></tr>` : ""}
 
             ${service || area ? `
             <tr><td colspan="2" style="padding:16px 24px 4px;font-size:11px;font-weight:700;color:#8d98aa;text-transform:uppercase;letter-spacing:1px;background:#f7f8fa;">Объект</td></tr>
@@ -111,16 +99,13 @@ export async function POST(req: NextRequest) {
 
             ${message ? `
             <tr><td colspan="2" style="padding:16px 24px 4px;font-size:11px;font-weight:700;color:#8d98aa;text-transform:uppercase;letter-spacing:1px;background:#f7f8fa;">Комментарий</td></tr>
-            <tr><td colspan="2" style="padding:10px 24px;font-size:14px;color:#0f1c3a;line-height:1.6;">${message}</td></tr>
+            <tr><td colspan="2" style="padding:10px 24px 16px;font-size:14px;color:#0f1c3a;line-height:1.6;">${message}</td></tr>
             ` : ""}
           </table>
         </td></tr>
 
-        <!-- Footer -->
-        <tr><td style="background:#f7f8fa;border-top:1px solid #e2e6ef;padding:16px 24px;">
-          <p style="margin:0;font-size:12px;color:#8d98aa;">
-            Получено: ${now} (МСК) · сайт строй-генподряд.рф
-          </p>
+        <tr><td style="background:#f7f8fa;border-top:1px solid #e2e6ef;padding:14px 24px;">
+          <p style="margin:0;font-size:12px;color:#8d98aa;">Получено: ${now} (МСК)</p>
         </td></tr>
 
       </table>
@@ -131,17 +116,22 @@ export async function POST(req: NextRequest) {
 
     const subject = `Новая заявка от ${name}${company ? ` (${company})` : ""} — ${sourceLabel[source] ?? "Сайт"}`
 
-    await transporter.sendMail({
-      from: `"СтройГенПодряд Сайт" <${smtpUser}>`,
-      to: toEmail,
-      replyTo: email || smtpUser,
+    const { error } = await resend.emails.send({
+      from: "СтройГенПодряд <onboarding@resend.dev>",
+      to: [toEmail],
+      reply_to: email || undefined,
       subject,
       html,
     })
 
+    if (error) {
+      console.error("[contact] Resend error:", error)
+      return NextResponse.json({ error: "Ошибка отправки письма." }, { status: 500 })
+    }
+
     return NextResponse.json({ ok: true })
   } catch (err) {
-    console.error("[contact] send error:", err)
+    console.error("[contact] server error:", err)
     return NextResponse.json({ error: "Ошибка сервера. Попробуйте позже." }, { status: 500 })
   }
 }
