@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { ArrowRight, ArrowLeft, CheckCircle2, Loader2 } from "lucide-react"
 
 const STEPS = [
@@ -170,7 +171,8 @@ export function QuizSection() {
                       }
                     </button>
                     <p className="text-[#8d98aa] text-xs mt-3 text-center">
-                      Нажимая кнопку, вы соглашаетесь с политикой обработки данных
+                      Нажимая кнопку, вы соглашаетесь с{" "}
+                      <Link href="/privacy" className="underline hover:text-[#0f1c3a] transition-colors">политикой обработки персональных данных</Link>
                     </p>
                   </form>
                 </>

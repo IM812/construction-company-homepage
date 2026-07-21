@@ -35,11 +35,11 @@ export function ContactsSection() {
                 <Mail size={18} className="text-[#1a5fd4]" aria-hidden="true" />
               </div>
               <p className="text-[#8d98aa] text-xs uppercase tracking-widest mb-3">Email</p>
-              <a href="mailto:info@stroygenpodriad.ru" className="block text-[#0f1c3a] font-bold text-base hover:text-[#1a5fd4] transition-colors mb-1 break-all">
-                info@stroygenpodriad.ru
+              <a href="mailto:info@stroyfintrust.ru" className="block text-[#0f1c3a] font-bold text-base hover:text-[#1a5fd4] transition-colors mb-1 break-all">
+                info@stroyfintrust.ru
               </a>
-              <a href="mailto:tender@stroygenpodriad.ru" className="block text-[#5a6880] text-sm hover:text-[#1a5fd4] transition-colors break-all">
-                tender@stroygenpodriad.ru
+              <a href="mailto:tender@stroyfintrust.ru" className="block text-[#5a6880] text-sm hover:text-[#1a5fd4] transition-colors break-all">
+                tender@stroyfintrust.ru
               </a>
             </div>
 
@@ -50,8 +50,8 @@ export function ContactsSection() {
               </div>
               <p className="text-[#8d98aa] text-xs uppercase tracking-widest mb-3">Адрес</p>
               <address className="not-italic">
-                <p className="text-[#0f1c3a] font-bold text-base leading-snug">Москва, Пресненская наб., 12</p>
-                <p className="text-[#5a6880] text-sm mt-1">Башня «Федерация», блок Восток, 38 этаж</p>
+                <p className="text-[#0f1c3a] font-bold text-base leading-snug">Москва, Щелковское шоссе, д. 9</p>
+                <p className="text-[#5a6880] text-sm mt-1">пом/ком/оф I/17/105, 105122</p>
               </address>
             </div>
 
@@ -75,7 +75,7 @@ export function ContactsSection() {
             <div className="flex items-start gap-3">
               <MapPin size={16} className="text-[#1a5fd4] mt-0.5 shrink-0" aria-hidden="true" />
               <div>
-                <p className="text-[#0f1c3a] font-bold text-sm">Москва, Щелковское шоссе, дом 7</p>
+                <p className="text-[#0f1c3a] font-bold text-sm">Москва, Щелковское шоссе, д. 9, пом/ком/оф I/17/105</p>
                 <p className="text-[#5a6880] text-xs mt-0.5">Ближайшее метро: Щёлковская (15 мин. пешком)</p>
               </div>
             </div>
@@ -85,13 +85,22 @@ export function ContactsSection() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#0f1c3a] border-t border-white/10 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/50 text-sm">© {year} ООО СтройФинТраст. Все права защищены.</p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="text-white/50 hover:text-white text-sm transition-colors">Политика конфиденциальности</a>
-            <a href="#" className="text-white/50 hover:text-white text-sm transition-colors">Реквизиты</a>
-            <a href="#" className="text-white/50 hover:text-white text-sm transition-colors">СРО</a>
+      <footer className="bg-[#0f1c3a] border-t border-white/10 py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Legal info strip */}
+          <div className="mb-6 pb-6 border-b border-white/10">
+            <p className="text-white/40 text-xs leading-relaxed">
+              ООО «Группа Стройфинтраст инжиниринг» (ООО «СтройФинТраст»).&nbsp;
+              ИНН: 9725027278&nbsp;&nbsp;КПП: 771801001&nbsp;&nbsp;ОГРН: 1197746749771.&nbsp;
+              105122, РФ, г. Москва, Щелковское шоссе, д. 9, пом/ком/оф I/17/105.
+            </p>
+          </div>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-white/50 text-sm">© {year} ООО «СтройФинТраст». Все права защищены.</p>
+            <div className="flex items-center gap-6">
+              <a href="/privacy" className="text-white/50 hover:text-white text-sm transition-colors">Политика конфиденциальности</a>
+              <a href="/requisites" className="text-white/50 hover:text-white text-sm transition-colors">Реквизиты</a>
+            </div>
           </div>
         </div>
       </footer>
