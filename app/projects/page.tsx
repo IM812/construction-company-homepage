@@ -7,7 +7,7 @@ import { FormSection } from "@/components/form-section"
 import { projects, getCompletedProjects, getActiveProjects } from "@/lib/projects-data"
 
 export const metadata = {
-  title: "Проекты — СтройГенПодряд",
+  title: "Проекты — СтройФинТраст",
   description: "Выполненные и текущие строительные проекты. Логистические комплексы, офисные центры, жилые и промышленные объекты.",
 }
 

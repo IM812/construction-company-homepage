@@ -53,7 +53,7 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
         <div className="flex items-center h-16 gap-6">
 
           {/* Logo */}
-          <Link href="/" aria-label="СтройГенПодряд — главная" className="shrink-0 flex items-center gap-2.5">
+          <Link href="/" aria-label="СтройФинТраст — главная" className="shrink-0 flex items-center gap-2.5">
             <div className="w-9 h-9 bg-[#1a5fd4] flex items-center justify-center shrink-0">
               <svg viewBox="0 0 36 36" fill="none" className="w-5 h-5" aria-hidden="true">
                 <path d="M4 16L18 6L32 16" stroke="white" strokeWidth="2.5" strokeLinejoin="round" />
@@ -65,7 +65,7 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
             </div>
             <div>
               <div className="font-black text-[15px] leading-none tracking-tight text-[#0f1c3a] uppercase">
-                СтройГенПодряд
+                СтройФинТраст
               </div>
               <div className="text-[9px] font-semibold uppercase tracking-[0.2em] text-[#1a5fd4] mt-0.5">
                 Генеральный подрядчик

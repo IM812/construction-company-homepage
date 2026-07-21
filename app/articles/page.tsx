@@ -6,7 +6,7 @@ import { ContactsSection } from "@/components/contacts-section"
 import { articles } from "@/lib/articles-data"
 
 export const metadata = {
-  title: "Статьи — СтройГенПодряд",
+  title: "Статьи — СтройФинТраст",
   description: "Экспертные статьи о строительстве, проектировании, выборе подрядчика, технологиях. Полезно для заказчиков и специалистов отрасли.",
 }
 

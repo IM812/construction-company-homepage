@@ -87,7 +87,7 @@ export function ContactsSection() {
       {/* Footer */}
       <footer className="bg-[#0f1c3a] border-t border-white/10 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/50 text-sm">© {year} СтройГенПодряд. Все права защищены.</p>
+          <p className="text-white/50 text-sm">© {year} ООО СтройФинТраст. Все права защищены.</p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-white/50 hover:text-white text-sm transition-colors">Политика конфиденциальности</a>
             <a href="#" className="text-white/50 hover:text-white text-sm transition-colors">Реквизиты</a>
