@@ -114,7 +114,7 @@ export async function POST(req: NextRequest) {
     const subject = `Новая заявка от ${name}${company ? ` (${company})` : ""} — ${sourceLabel[source] ?? "Сайт"}`
 
     const { error } = await resend.emails.send({
-      from: "СтройФинТраст <onboarding@resend.dev>",
+      from: "СтройФинТраст <noreply@stroyfintrust.ru>",
       to: [toEmail],
       replyTo: email || undefined,
       subject,
