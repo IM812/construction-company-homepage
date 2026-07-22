@@ -15,7 +15,7 @@ const SERVICES = [
 
 const WAYS = [
   { icon: Phone,  title: "Позвонить",        desc: "Пн–Пт 9:00–18:00",           action: "8 (499) 390-94-73",  href: "tel:+74993909473" },
-  { icon: Mail,   title: "Написать на email", desc: "Ответим в течение 2 часов",   action: "info@stroygen.ru",   href: "mailto:info@stroygen.ru" },
+  { icon: Mail,   title: "Написать на email", desc: "Ответим в течение 2 часов",   action: "info@stroyfintrust.ru",   href: "mailto:info@stroyfintrust.ru" },
   { icon: MapPin, title: "Приехать в офис",   desc: "Москва, Щелковское шоссе, 7", action: "Открыть схему",     href: "#" },
 ]
 
