@@ -68,7 +68,7 @@ export async function POST(req: NextRequest) {
       <table width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:4px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
 
         <tr><td style="background:#1a5fd4;padding:20px 24px;">
-          <p style="margin:0;color:#ffffff;font-size:18px;font-weight:800;letter-spacing:-0.3px;">СтройГенПодряд</p>
+          <p style="margin:0;color:#ffffff;font-size:18px;font-weight:800;letter-spacing:-0.3px;">ООО СтройФинТраст</p>
           <p style="margin:4px 0 0;color:rgba(255,255,255,0.7);font-size:13px;">Новая заявка с сайта</p>
         </td></tr>
 
@@ -114,7 +114,7 @@ export async function POST(req: NextRequest) {
     const subject = `Новая заявка от ${name}${company ? ` (${company})` : ""} — ${sourceLabel[source] ?? "Сайт"}`
 
     const { error } = await resend.emails.send({
-      from: "СтройГенПодряд <onboarding@resend.dev>",
+      from: "СтройФинТраст <onboarding@resend.dev>",
       to: [toEmail],
       replyTo: email || undefined,
       subject,

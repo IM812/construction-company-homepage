@@ -65,7 +65,7 @@ export function ClientValueSection() {
           <div className="bg-white p-8 lg:p-10 border-l-4 border-[#1a5fd4]">
             <p className="text-[#1a5fd4] text-xs font-semibold uppercase tracking-[0.25em] mb-6 flex items-center gap-2">
               <CheckCircle2 size={13} aria-hidden="true" />
-              С генподрядчиком СтройГенПодряд
+              С генподрядчиком СтройФинТраст
             </p>
             <ul className="space-y-4">
               {withUs.map((item) => (

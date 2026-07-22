@@ -143,7 +143,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="relative">
-                <img src="/images/about-office.jpg" alt="Офис компании СтройГенПодряд" className="w-full aspect-[4/3] object-cover" />
+                <img src="/images/about-office.jpg" alt="Офис компании ООО СтройФинТраст" className="w-full aspect-[4/3] object-cover" />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white to-transparent h-16" />
                 <div className="absolute bottom-3 left-4 right-4">
                   <p className="text-[#5a6880] text-xs uppercase tracking-widest">Офис · Москва, Щелковское шоссе, 7</p>
