@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import { Resend } from "resend"
 
 const RESEND_API_KEY = "re_cf8Xjqk9_FZZbb31ijGmGoPfNbKSG9tS6"
-const CONTACT_EMAIL = "info@stroygenpodriad.ru"
+const CONTACT_EMAIL = "info@stroyfintrust.ru"
 
 const resend = new Resend(RESEND_API_KEY)
 
